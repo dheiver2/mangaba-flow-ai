@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
-import { Menu, Play, Save, Settings, Zap } from 'lucide-react';
+import { Menu, Play, Save, Settings, Zap, Home } from 'lucide-react';
 import { ApiKeyModal } from '@/components/ApiKeyModal';
+import { Link } from 'react-router-dom';
 
 interface FlowHeaderProps {
   onSidebarToggle: () => void;
@@ -53,6 +54,18 @@ export const FlowHeader = ({ onSidebarToggle, sidebarOpen, onRunFlow, isExecutin
       </div>
 
       <div className="flex items-center space-x-3 relative z-10">
+        <Button 
+          variant="ghost" 
+          size="sm"
+          className="text-white hover:bg-white/20 transition-all duration-300"
+          asChild
+        >
+          <Link to="/">
+            <Home className="h-4 w-4 mr-2" />
+            Home
+          </Link>
+        </Button>
+        
         <Button 
           variant="ghost" 
           size="sm"
