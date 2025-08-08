@@ -61,7 +61,28 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Mangaba specific colors
+				mangaba: {
+					gold: 'hsl(var(--mangaba-gold))',
+					orange: 'hsl(var(--mangaba-orange))',
+					green: 'hsl(var(--mangaba-green))',
+					yellow: 'hsl(var(--mangaba-yellow))',
+					earth: 'hsl(var(--mangaba-earth))'
 				}
+			},
+			backgroundImage: {
+				'gradient-mangaba': 'var(--gradient-mangaba)',
+				'gradient-tropical': 'var(--gradient-tropical)',
+				'gradient-canvas': 'var(--gradient-canvas)'
+			},
+			boxShadow: {
+				'mangaba': 'var(--shadow-mangaba)',
+				'node': 'var(--shadow-node)',
+				'float': 'var(--shadow-float)'
+			},
+			transitionTimingFunction: {
+				'bounce-gentle': 'var(--bounce-gentle)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
