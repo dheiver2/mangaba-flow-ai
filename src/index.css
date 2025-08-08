@@ -385,4 +385,3 @@ All colors MUST be HSL.
     background-color: hsl(var(--background)) !important;
     border: 1px solid hsl(var(--border)) !important;
   }
-}
