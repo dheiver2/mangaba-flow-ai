@@ -108,7 +108,7 @@ export const ReactFlowCanvas = ({
     type: 'smoothstep',
     animated: true,
     style: { 
-      stroke: 'hsl(var(--mangaba-gold))',
+      stroke: 'hsl(var(--mangaba-green))',
       strokeWidth: 2
     }
   }));
@@ -198,7 +198,7 @@ export const ReactFlowCanvas = ({
         <Background 
           gap={20} 
           size={1}
-          color="hsl(var(--mangaba-gold) / 0.2)"
+          color="hsl(var(--mangaba-green) / 0.2)"
         />
         <Controls 
           className="react-flow__controls-mangaba"
@@ -218,33 +218,33 @@ export const ReactFlowCanvas = ({
           nodeColor={(node) => {
             const nodeTypeColors: Record<string, string> = {
               'input': 'hsl(var(--mangaba-green))',
-              'llm': 'hsl(var(--mangaba-gold))',
-              'output': 'hsl(var(--mangaba-orange))',
+              'llm': 'hsl(var(--mangaba-yellow))',
+              'output': 'hsl(var(--mangaba-red))',
               'tool': 'hsl(var(--mangaba-yellow))',
               'sentiment': 'hsl(var(--mangaba-yellow))',
-              'entity-extraction': 'hsl(var(--mangaba-lime))',
-              'keyword-extraction': 'hsl(var(--mangaba-amber))',
-              'text-classification': 'hsl(var(--mangaba-coral))',
+              'entity-extraction': 'hsl(var(--mangaba-green))',
+              'keyword-extraction': 'hsl(var(--mangaba-yellow))',
+              'text-classification': 'hsl(var(--mangaba-red))',
               'blog-writer': 'hsl(var(--mangaba-green))',
-              'email-composer': 'hsl(var(--mangaba-orange))',
+              'email-composer': 'hsl(var(--mangaba-red))',
               'social-media': 'hsl(var(--mangaba-yellow))',
-              'summary-generator': 'hsl(var(--mangaba-earth))',
+              'summary-generator': 'hsl(var(--mangaba-green))',
               'translator': 'hsl(var(--mangaba-green))',
-              'grammar-checker': 'hsl(var(--mangaba-orange))',
+              'grammar-checker': 'hsl(var(--mangaba-red))',
               'style-enhancer': 'hsl(var(--mangaba-yellow))',
-              'code-generator': 'hsl(var(--mangaba-earth))',
+              'code-generator': 'hsl(var(--mangaba-green))',
               'code-reviewer': 'hsl(var(--mangaba-green))',
-              'bug-finder': 'hsl(var(--mangaba-orange))',
+              'bug-finder': 'hsl(var(--mangaba-red))',
               'documentation': 'hsl(var(--mangaba-yellow))',
               'chatbot': 'hsl(var(--mangaba-green))',
-              'customer-support': 'hsl(var(--mangaba-orange))',
+              'customer-support': 'hsl(var(--mangaba-red))',
               'sales-assistant': 'hsl(var(--mangaba-yellow))',
               'web-search': 'hsl(var(--mangaba-yellow))',
-              'database': 'hsl(var(--mangaba-earth))',
+              'database': 'hsl(var(--mangaba-green))',
               'api-call': 'hsl(var(--mangaba-green))',
-              'calculator': 'hsl(var(--mangaba-orange))'
+              'calculator': 'hsl(var(--mangaba-red))'
             };
-            return nodeTypeColors[node.type || 'default'] || 'hsl(var(--mangaba-gold))';
+            return nodeTypeColors[node.type || 'default'] || 'hsl(var(--mangaba-green))';
           }}
         />
 

@@ -29,197 +29,197 @@ const nodeTypeConfig = {
   // Core types
   input: {
     icon: MessageSquare,
-    color: 'bg-mangaba-green',
-    borderColor: 'border-mangaba-green',
-    label: 'Input',
-    category: 'Core'
+    color: 'bg-primary',
+    borderColor: 'border-primary',
+    label: 'Entrada',
+    category: 'Principal'
   },
   llm: {
     icon: Brain,
-    color: 'bg-mangaba-gold',
-    borderColor: 'border-mangaba-gold',
+    color: 'bg-accent',
+    borderColor: 'border-accent',
     label: 'Gemini LLM',
-    category: 'AI'
+    category: 'IA'
   },
   output: {
     icon: FileText,
-    color: 'bg-mangaba-orange',
-    borderColor: 'border-mangaba-orange',
-    label: 'Output',
-    category: 'Core'
+    color: 'bg-destructive',
+    borderColor: 'border-destructive',
+    label: 'Saída',
+    category: 'Principal'
   },
   tool: {
     icon: Zap,
-    color: 'bg-mangaba-yellow',
-    borderColor: 'border-mangaba-yellow',
-    label: 'Tool',
-    category: 'Tools'
+    color: 'bg-accent',
+    borderColor: 'border-accent',
+    label: 'Ferramenta',
+    category: 'Ferramentas'
   },
   
   // Analysis types
   sentiment: {
     icon: BarChart3,
-    color: 'bg-mangaba-yellow',
-    borderColor: 'border-mangaba-yellow',
-    label: 'Sentiment Analysis',
-    category: 'Analysis'
+    color: 'bg-accent',
+    borderColor: 'border-accent',
+    label: 'Análise de Sentimento',
+    category: 'Análise'
   },
   'entity-extraction': {
     icon: Search,
-    color: 'bg-mangaba-lime',
-    borderColor: 'border-mangaba-lime',
-    label: 'Entity Extraction',
-    category: 'Analysis'
+    color: 'bg-primary',
+    borderColor: 'border-primary',
+    label: 'Extração de Entidades',
+    category: 'Análise'
   },
   'keyword-extraction': {
     icon: Zap,
-    color: 'bg-mangaba-amber',
-    borderColor: 'border-mangaba-amber',
-    label: 'Keyword Extraction',
-    category: 'Analysis'
+    color: 'bg-accent',
+    borderColor: 'border-accent',
+    label: 'Extração de Palavras-chave',
+    category: 'Análise'
   },
   'text-classification': {
     icon: FileText,
-    color: 'bg-mangaba-coral',
-    borderColor: 'border-mangaba-coral',
-    label: 'Text Classification',
-    category: 'Analysis'
+    color: 'bg-destructive',
+    borderColor: 'border-destructive',
+    label: 'Classificação de Texto',
+    category: 'Análise'
   },
   
   // Generation types
   'blog-writer': {
     icon: FileText,
-    color: 'bg-mangaba-green',
-    borderColor: 'border-mangaba-green',
-    label: 'Blog Writer',
-    category: 'Generation'
+    color: 'bg-primary',
+    borderColor: 'border-primary',
+    label: 'Escritor de Blog',
+    category: 'Geração'
   },
   'email-composer': {
     icon: Mail,
-    color: 'bg-mangaba-orange',
-    borderColor: 'border-mangaba-orange',
-    label: 'Email Composer',
-    category: 'Generation'
+    color: 'bg-destructive',
+    borderColor: 'border-destructive',
+    label: 'Compositor de Email',
+    category: 'Geração'
   },
   'social-media': {
     icon: MessageSquare,
-    color: 'bg-mangaba-yellow',
-    borderColor: 'border-mangaba-yellow',
-    label: 'Social Media',
-    category: 'Generation'
+    color: 'bg-accent',
+    borderColor: 'border-accent',
+    label: 'Mídia Social',
+    category: 'Geração'
   },
   'summary-generator': {
     icon: FileText,
-    color: 'bg-mangaba-earth',
-    borderColor: 'border-mangaba-earth',
-    label: 'Summarizer',
-    category: 'Generation'
+    color: 'bg-primary',
+    borderColor: 'border-primary',
+    label: 'Resumidor',
+    category: 'Geração'
   },
   
   // Language types
   translator: {
     icon: Languages,
-    color: 'bg-mangaba-green',
-    borderColor: 'border-mangaba-green',
-    label: 'Translator',
-    category: 'Language'
+    color: 'bg-primary',
+    borderColor: 'border-primary',
+    label: 'Tradutor',
+    category: 'Linguagem'
   },
   'grammar-checker': {
     icon: Shield,
-    color: 'bg-mangaba-orange',
-    borderColor: 'border-mangaba-orange',
-    label: 'Grammar Checker',
-    category: 'Language'
+    color: 'bg-destructive',
+    borderColor: 'border-destructive',
+    label: 'Corretor Gramatical',
+    category: 'Linguagem'
   },
   'style-enhancer': {
     icon: Sparkles,
-    color: 'bg-mangaba-yellow',
-    borderColor: 'border-mangaba-yellow',
-    label: 'Style Enhancer',
-    category: 'Language'
+    color: 'bg-accent',
+    borderColor: 'border-accent',
+    label: 'Melhorador de Estilo',
+    category: 'Linguagem'
   },
   
   // Code types
   'code-generator': {
     icon: Code,
-    color: 'bg-mangaba-earth',
-    borderColor: 'border-mangaba-earth',
-    label: 'Code Generator',
-    category: 'Development'
+    color: 'bg-primary',
+    borderColor: 'border-primary',
+    label: 'Gerador de Código',
+    category: 'Desenvolvimento'
   },
   'code-reviewer': {
     icon: Search,
-    color: 'bg-mangaba-green',
-    borderColor: 'border-mangaba-green',
-    label: 'Code Reviewer',
-    category: 'Development'
+    color: 'bg-primary',
+    borderColor: 'border-primary',
+    label: 'Revisor de Código',
+    category: 'Desenvolvimento'
   },
   'bug-finder': {
     icon: Shield,
-    color: 'bg-mangaba-orange',
-    borderColor: 'border-mangaba-orange',
-    label: 'Bug Detector',
-    category: 'Development'
+    color: 'bg-destructive',
+    borderColor: 'border-destructive',
+    label: 'Detector de Bugs',
+    category: 'Desenvolvimento'
   },
   documentation: {
     icon: FileText,
-    color: 'bg-mangaba-yellow',
-    borderColor: 'border-mangaba-yellow',
-    label: 'Documenter',
-    category: 'Development'
+    color: 'bg-accent',
+    borderColor: 'border-accent',
+    label: 'Documentador',
+    category: 'Desenvolvimento'
   },
   
   // Conversation types
   chatbot: {
     icon: Bot,
-    color: 'bg-mangaba-green',
-    borderColor: 'border-mangaba-green',
+    color: 'bg-primary',
+    borderColor: 'border-primary',
     label: 'Chatbot',
-    category: 'Conversation'
+    category: 'Conversa'
   },
   'customer-support': {
     icon: MessageSquare,
-    color: 'bg-mangaba-orange',
-    borderColor: 'border-mangaba-orange',
-    label: 'Customer Support',
-    category: 'Conversation'
+    color: 'bg-destructive',
+    borderColor: 'border-destructive',
+    label: 'Suporte ao Cliente',
+    category: 'Conversa'
   },
   'sales-assistant': {
     icon: BarChart3,
-    color: 'bg-mangaba-yellow',
-    borderColor: 'border-mangaba-yellow',
-    label: 'Sales Assistant',
-    category: 'Conversation'
+    color: 'bg-accent',
+    borderColor: 'border-accent',
+    label: 'Assistente de Vendas',
+    category: 'Conversa'
   },
   
   // Tool types
   'web-search': {
     icon: Search,
-    color: 'bg-mangaba-yellow',
-    borderColor: 'border-mangaba-yellow',
-    label: 'Web Search',
-    category: 'Tools'
+    color: 'bg-accent',
+    borderColor: 'border-accent',
+    label: 'Busca na Web',
+    category: 'Ferramentas'
   },
   database: {
     icon: Database,
-    color: 'bg-mangaba-earth',
-    borderColor: 'border-mangaba-earth',
-    label: 'Database',
-    category: 'Tools'
+    color: 'bg-primary',
+    borderColor: 'border-primary',
+    label: 'Banco de Dados',
+    category: 'Ferramentas'
   },
   'api-call': {
     icon: Globe,
-    color: 'bg-mangaba-green',
-    borderColor: 'border-mangaba-green',
-    label: 'API Call',
-    category: 'Tools'
+    color: 'bg-primary',
+    borderColor: 'border-primary',
+    label: 'Chamada de API',
+    category: 'Ferramentas'
   },
   calculator: {
     icon: Calculator,
-    color: 'bg-mangaba-orange',
-    borderColor: 'border-mangaba-orange',
-    label: 'Calculator',
-    category: 'Tools'
+    color: 'bg-destructive',
+    borderColor: 'border-destructive',
+    label: 'Calculadora',
+    category: 'Ferramentas'
   }
 };
 
@@ -245,24 +245,24 @@ export const AdvancedNodeComponent = memo(({ data }: AdvancedNodeComponentProps)
       <Handle 
         type="target" 
         position={Position.Left} 
-        className="w-3 h-3 !bg-mangaba-gold !border-2 !border-white"
+        className="w-3 h-3 !bg-primary !border-2 !border-white"
       />
       
       <Card 
         className={`
-          w-64 p-4 cursor-pointer node-pulse
+          w-64 p-4 cursor-pointer transition-all duration-200
           ${data.isSelected 
-            ? `ring-2 ring-mangaba-gold shadow-glow scale-105 ${config.borderColor}` 
-            : 'border-mangaba-gold/20 hover:shadow-node'
+            ? `ring-2 ring-primary shadow-lg scale-105 ${config.borderColor}` 
+            : 'border-border hover:shadow-md'
           }
-          transition-all duration-200 bg-gradient-card
+          bg-card hover:bg-card/80
         `}
         onClick={data.onSelect}
       >
         {/* Node Header */}
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center space-x-3">
-            <div className={`w-10 h-10 ${config.color} rounded-xl flex items-center justify-center shadow-sm animate-pulse-glow`}>
+            <div className={`w-10 h-10 ${config.color} rounded-xl flex items-center justify-center shadow-sm`}>
               <IconComponent className="h-5 w-5 text-white" />
             </div>
             <div>
@@ -277,10 +277,10 @@ export const AdvancedNodeComponent = memo(({ data }: AdvancedNodeComponentProps)
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-6 w-6 p-0 hover:bg-mangaba-gold/20"
+                className="h-6 w-6 p-0 hover:bg-primary/20"
                 onClick={(e) => {
                   e.stopPropagation();
-                  // TODO: Open settings
+                  console.log('Settings clicked for:', data.nodeType);
                 }}
               >
                 <Settings className="h-3 w-3" />
@@ -314,25 +314,25 @@ export const AdvancedNodeComponent = memo(({ data }: AdvancedNodeComponentProps)
 
         {/* Status Indicator */}
         <div className="absolute -top-2 -right-2">
-          <div className="w-4 h-4 bg-mangaba-green rounded-full border-2 border-white shadow-sm flex items-center justify-center">
-            <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+          <div className="w-4 h-4 bg-primary rounded-full border-2 border-white shadow-sm flex items-center justify-center">
+            <div className="w-2 h-2 bg-white rounded-full"></div>
           </div>
         </div>
 
         {/* Quick Action Button (for selected nodes) */}
         {data.isSelected && (
-          <div className="mt-3 pt-3 border-t border-mangaba-gold/20">
+          <div className="mt-3 pt-3 border-t border-border">
             <Button
               size="sm"
               variant="outline"
-              className="w-full text-xs border-mangaba-gold/30 hover:bg-mangaba-gold/10"
+              className="w-full text-xs"
               onClick={(e) => {
                 e.stopPropagation();
-                // TODO: Quick test/run this node
+                console.log('Test node clicked for:', data.nodeType);
               }}
             >
               <Play className="h-3 w-3 mr-1" />
-              Test Node
+              Testar Nó
             </Button>
           </div>
         )}
@@ -341,7 +341,7 @@ export const AdvancedNodeComponent = memo(({ data }: AdvancedNodeComponentProps)
       <Handle 
         type="source" 
         position={Position.Right} 
-        className="w-3 h-3 !bg-mangaba-gold !border-2 !border-white"
+        className="w-3 h-3 !bg-primary !border-2 !border-white"
       />
     </>
   );
