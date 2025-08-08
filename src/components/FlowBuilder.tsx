@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { FlowSidebar } from './flow/FlowSidebar';
-import { FlowCanvas } from './flow/FlowCanvas';
+import { FlowSidebar } from './flow/FlowSidebarAdvanced';
+import { ReactFlowCanvas } from './flow/ReactFlowCanvas';
 import { FlowHeader } from './flow/FlowHeader';
 import { PropertiesPanel } from './flow/PropertiesPanel';
 import { FlowExecutor, FlowExecutionStep } from '@/lib/flowExecutor';
@@ -8,7 +8,7 @@ import { useToast } from '@/hooks/use-toast';
 
 export interface FlowNode {
   id: string;
-  type: 'input' | 'llm' | 'output' | 'tool';
+  type: string; // Made more flexible to support all the new node types
   data: {
     label: string;
     description?: string;
@@ -34,7 +34,7 @@ export const FlowBuilder = () => {
   const [executionSteps, setExecutionSteps] = useState<FlowExecutionStep[]>([]);
   const { toast } = useToast();
 
-  const addNode = (type: FlowNode['type'], position?: { x: number; y: number }) => {
+  const addNode = (type: string, position?: { x: number; y: number }) => {
     const defaultPosition = position || { 
       x: Math.random() * 400 + 200, 
       y: Math.random() * 300 + 100 
@@ -115,7 +115,7 @@ export const FlowBuilder = () => {
           onAddNode={addNode}
         />
         
-        <FlowCanvas
+        <ReactFlowCanvas
           nodes={nodes}
           connections={connections}
           selectedNode={selectedNode}
@@ -123,6 +123,7 @@ export const FlowBuilder = () => {
           onNodeUpdate={updateNode}
           onNodeDelete={deleteNode}
           onAddNode={addNode}
+          onConnectionsChange={setConnections}
         />
         
         <PropertiesPanel
