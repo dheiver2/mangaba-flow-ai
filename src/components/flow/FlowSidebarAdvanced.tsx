@@ -366,8 +366,37 @@ const flowTemplates: Template[] = [
     difficulty: 'Beginner',
     estimatedTime: '5 min',
     tags: ['customer service', 'chatbot', 'automation'],
-    nodes: [],
-    connections: []
+    nodes: [
+      {
+        id: 'input-1',
+        type: 'input',
+        position: { x: 100, y: 100 },
+        data: { label: 'Customer Message', description: 'Capture customer input' }
+      },
+      {
+        id: 'sentiment-1',
+        type: 'sentiment',
+        position: { x: 400, y: 100 },
+        data: { label: 'Analyze Sentiment', description: 'Analyze customer emotion' }
+      },
+      {
+        id: 'llm-1',
+        type: 'llm',
+        position: { x: 700, y: 100 },
+        data: { label: 'Generate Response', description: 'Create helpful response' }
+      },
+      {
+        id: 'output-1',
+        type: 'output',
+        position: { x: 1000, y: 100 },
+        data: { label: 'Customer Response', description: 'Send response to customer' }
+      }
+    ],
+    connections: [
+      { id: 'e1', source: 'input-1', target: 'sentiment-1' },
+      { id: 'e2', source: 'sentiment-1', target: 'llm-1' },
+      { id: 'e3', source: 'llm-1', target: 'output-1' }
+    ]
   },
   {
     id: 'content-creation',
@@ -378,8 +407,37 @@ const flowTemplates: Template[] = [
     difficulty: 'Intermediate',
     estimatedTime: '10 min',
     tags: ['content', 'marketing', 'writing'],
-    nodes: [],
-    connections: []
+    nodes: [
+      {
+        id: 'input-1',
+        type: 'input',
+        position: { x: 100, y: 100 },
+        data: { label: 'Content Topic', description: 'Input your topic or keywords' }
+      },
+      {
+        id: 'blog-1',
+        type: 'blog-writer',
+        position: { x: 400, y: 50 },
+        data: { label: 'Blog Post', description: 'Generate blog content' }
+      },
+      {
+        id: 'social-1',
+        type: 'social-media',
+        position: { x: 400, y: 150 },
+        data: { label: 'Social Media', description: 'Create social posts' }
+      },
+      {
+        id: 'email-1',
+        type: 'email-composer',
+        position: { x: 400, y: 250 },
+        data: { label: 'Email Content', description: 'Generate marketing emails' }
+      }
+    ],
+    connections: [
+      { id: 'e1', source: 'input-1', target: 'blog-1' },
+      { id: 'e2', source: 'input-1', target: 'social-1' },
+      { id: 'e3', source: 'input-1', target: 'email-1' }
+    ]
   },
   {
     id: 'data-analysis',
@@ -390,8 +448,46 @@ const flowTemplates: Template[] = [
     difficulty: 'Intermediate',
     estimatedTime: '8 min',
     tags: ['analysis', 'data', 'insights'],
-    nodes: [],
-    connections: []
+    nodes: [
+      {
+        id: 'input-1',
+        type: 'input',
+        position: { x: 100, y: 150 },
+        data: { label: 'Text Input', description: 'Text to analyze' }
+      },
+      {
+        id: 'sentiment-1',
+        type: 'sentiment',
+        position: { x: 400, y: 50 },
+        data: { label: 'Sentiment', description: 'Analyze emotional tone' }
+      },
+      {
+        id: 'entity-1',
+        type: 'entity-extraction',
+        position: { x: 400, y: 150 },
+        data: { label: 'Entities', description: 'Extract entities' }
+      },
+      {
+        id: 'keyword-1',
+        type: 'keyword-extraction',
+        position: { x: 400, y: 250 },
+        data: { label: 'Keywords', description: 'Extract keywords' }
+      },
+      {
+        id: 'output-1',
+        type: 'output',
+        position: { x: 700, y: 150 },
+        data: { label: 'Analysis Report', description: 'Comprehensive analysis results' }
+      }
+    ],
+    connections: [
+      { id: 'e1', source: 'input-1', target: 'sentiment-1' },
+      { id: 'e2', source: 'input-1', target: 'entity-1' },
+      { id: 'e3', source: 'input-1', target: 'keyword-1' },
+      { id: 'e4', source: 'sentiment-1', target: 'output-1' },
+      { id: 'e5', source: 'entity-1', target: 'output-1' },
+      { id: 'e6', source: 'keyword-1', target: 'output-1' }
+    ]
   },
   {
     id: 'translation-service',
@@ -402,8 +498,37 @@ const flowTemplates: Template[] = [
     difficulty: 'Beginner',
     estimatedTime: '3 min',
     tags: ['translation', 'multilingual', 'communication'],
-    nodes: [],
-    connections: []
+    nodes: [
+      {
+        id: 'input-1',
+        type: 'input',
+        position: { x: 100, y: 100 },
+        data: { label: 'Source Text', description: 'Text to translate' }
+      },
+      {
+        id: 'translator-1',
+        type: 'translator',
+        position: { x: 400, y: 100 },
+        data: { label: 'Translator', description: 'Translate to target language' }
+      },
+      {
+        id: 'grammar-1',
+        type: 'grammar-checker',
+        position: { x: 700, y: 100 },
+        data: { label: 'Quality Check', description: 'Check translation quality' }
+      },
+      {
+        id: 'output-1',
+        type: 'output',
+        position: { x: 1000, y: 100 },
+        data: { label: 'Translated Text', description: 'Final translated result' }
+      }
+    ],
+    connections: [
+      { id: 'e1', source: 'input-1', target: 'translator-1' },
+      { id: 'e2', source: 'translator-1', target: 'grammar-1' },
+      { id: 'e3', source: 'grammar-1', target: 'output-1' }
+    ]
   },
   {
     id: 'code-assistant',
@@ -414,8 +539,45 @@ const flowTemplates: Template[] = [
     difficulty: 'Advanced',
     estimatedTime: '15 min',
     tags: ['coding', 'development', 'ai assistant'],
-    nodes: [],
-    connections: []
+    nodes: [
+      {
+        id: 'input-1',
+        type: 'input',
+        position: { x: 100, y: 150 },
+        data: { label: 'Code Request', description: 'Describe what code you need' }
+      },
+      {
+        id: 'code-gen-1',
+        type: 'code-generator',
+        position: { x: 400, y: 100 },
+        data: { label: 'Generate Code', description: 'AI generates code' }
+      },
+      {
+        id: 'code-review-1',
+        type: 'code-reviewer',
+        position: { x: 700, y: 100 },
+        data: { label: 'Review Code', description: 'Check code quality' }
+      },
+      {
+        id: 'bug-finder-1',
+        type: 'bug-finder',
+        position: { x: 700, y: 200 },
+        data: { label: 'Find Bugs', description: 'Detect potential issues' }
+      },
+      {
+        id: 'doc-1',
+        type: 'documentation',
+        position: { x: 1000, y: 150 },
+        data: { label: 'Generate Docs', description: 'Create documentation' }
+      }
+    ],
+    connections: [
+      { id: 'e1', source: 'input-1', target: 'code-gen-1' },
+      { id: 'e2', source: 'code-gen-1', target: 'code-review-1' },
+      { id: 'e3', source: 'code-gen-1', target: 'bug-finder-1' },
+      { id: 'e4', source: 'code-review-1', target: 'doc-1' },
+      { id: 'e5', source: 'bug-finder-1', target: 'doc-1' }
+    ]
   },
   {
     id: 'email-automation',
@@ -426,17 +588,55 @@ const flowTemplates: Template[] = [
     difficulty: 'Intermediate',
     estimatedTime: '7 min',
     tags: ['email', 'automation', 'personalization'],
-    nodes: [],
-    connections: []
+    nodes: [
+      {
+        id: 'input-1',
+        type: 'input',
+        position: { x: 100, y: 150 },
+        data: { label: 'Incoming Email', description: 'Email to respond to' }
+      },
+      {
+        id: 'sentiment-1',
+        type: 'sentiment',
+        position: { x: 400, y: 100 },
+        data: { label: 'Analyze Tone', description: 'Detect email sentiment' }
+      },
+      {
+        id: 'entity-1',
+        type: 'entity-extraction',
+        position: { x: 400, y: 200 },
+        data: { label: 'Extract Info', description: 'Get key information' }
+      },
+      {
+        id: 'email-composer-1',
+        type: 'email-composer',
+        position: { x: 700, y: 150 },
+        data: { label: 'Compose Reply', description: 'Generate personalized response' }
+      },
+      {
+        id: 'output-1',
+        type: 'output',
+        position: { x: 1000, y: 150 },
+        data: { label: 'Email Response', description: 'Final email to send' }
+      }
+    ],
+    connections: [
+      { id: 'e1', source: 'input-1', target: 'sentiment-1' },
+      { id: 'e2', source: 'input-1', target: 'entity-1' },
+      { id: 'e3', source: 'sentiment-1', target: 'email-composer-1' },
+      { id: 'e4', source: 'entity-1', target: 'email-composer-1' },
+      { id: 'e5', source: 'email-composer-1', target: 'output-1' }
+    ]
   }
 ];
 
 interface FlowSidebarProps {
   isOpen: boolean;
   onAddNode: (type: string, position?: { x: number; y: number }) => void;
+  onLoadTemplate?: (template: Template) => void;
 }
 
-export const FlowSidebar = ({ isOpen, onAddNode }: FlowSidebarProps) => {
+export const FlowSidebar = ({ isOpen, onAddNode, onLoadTemplate }: FlowSidebarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
@@ -554,8 +754,9 @@ export const FlowSidebar = ({ isOpen, onAddNode }: FlowSidebarProps) => {
                     key={template.id}
                     className="p-4 cursor-pointer hover:shadow-node transition-all duration-200 hover:scale-[1.02] border-mangaba-gold/20 group"
                     onClick={() => {
-                      // TODO: Load template
-                      console.log('Loading template:', template.id);
+                      if (onLoadTemplate) {
+                        onLoadTemplate(template);
+                      }
                     }}
                   >
                     <div className="flex items-start space-x-3">

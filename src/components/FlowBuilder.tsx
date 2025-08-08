@@ -100,6 +100,22 @@ export const FlowBuilder = () => {
     }
   };
 
+  const loadTemplate = (template: any) => {
+    // Clear existing nodes and connections
+    setNodes([]);
+    setConnections([]);
+    setSelectedNode(null);
+    
+    // Add template nodes and connections
+    setTimeout(() => {
+      setNodes(template.nodes.map((node: any) => ({
+        ...node,
+        id: `${node.type}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
+      })));
+      setConnections(template.connections);
+    }, 100);
+  };
+
   return (
     <div className="h-screen flex flex-col bg-gradient-canvas">
       <FlowHeader 
@@ -113,6 +129,7 @@ export const FlowBuilder = () => {
         <FlowSidebar 
           isOpen={sidebarOpen}
           onAddNode={addNode}
+          onLoadTemplate={loadTemplate}
         />
         
         <ReactFlowCanvas
