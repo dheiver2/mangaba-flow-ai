@@ -1399,14 +1399,14 @@ export const FlowSidebar = ({ isOpen, onAddNode, onLoadTemplate }: FlowSidebarPr
               {filteredTemplates.map(template => (
                 <Card
                   key={template.id}
-                  className="p-4 cursor-pointer hover:shadow-lg transition-all duration-200 hover:scale-102"
+                  className="p-4 cursor-pointer hover:shadow-lg transition-all duration-200 hover:scale-105 bg-card border border-border"
                   onClick={() => {
                     console.log('Template clicked:', template.name);
                     onLoadTemplate(template);
                   }}
                 >
                   <div className="flex items-start gap-3">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${template.color} flex items-center justify-center flex-shrink-0`}>
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${template.color} flex items-center justify-center flex-shrink-0 shadow-sm`}>
                       <template.icon className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1 min-w-0">

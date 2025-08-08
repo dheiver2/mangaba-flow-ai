@@ -284,8 +284,8 @@ All colors MUST be HSL.
 
   .border-gradient-animated {
     border: 2px solid transparent;
-    background: linear-gradient(white, white) padding-box,
-                var(--gradient-mangaba-hero) border-box;
+    background: linear-gradient(hsl(var(--background)), hsl(var(--background))) padding-box,
+                linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent))) border-box;
     background-size: 200% 200%;
     animation: gradient 6s ease infinite;
   }
