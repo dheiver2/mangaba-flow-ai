@@ -8,26 +8,23 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Paleta de Cores Oficial Mangaba AI */
-    --mangaba-primary: 85 85% 45%;        /* Verde principal do logo */
-    --mangaba-primary-dark: 80 80% 35%;   /* Verde escuro */
-    --mangaba-primary-light: 90 90% 55%;  /* Verde claro */
-    --mangaba-primary-glow: 85 95% 85%;   /* Verde brilhante */
+    /* Paleta Oficial Mangaba AI - Verde, Branco, Amarelo, Vermelho */
+    --mangaba-green: 142 76% 36%;         /* Verde principal */
+    --mangaba-green-light: 142 76% 46%;   /* Verde claro */
+    --mangaba-green-dark: 142 76% 26%;    /* Verde escuro */
     
-    --mangaba-secondary: 35 85% 55%;      /* Laranja complementar */
-    --mangaba-secondary-dark: 30 80% 45%; /* Laranja escuro */
-    --mangaba-secondary-light: 40 90% 65%; /* Laranja claro */
-    --mangaba-secondary-coral: 32 88% 60%; /* Coral mangaba */
+    --mangaba-yellow: 50 100% 60%;        /* Amarelo vibrante */
+    --mangaba-yellow-light: 50 100% 70%;  /* Amarelo claro */
+    --mangaba-yellow-dark: 45 100% 50%;   /* Amarelo escuro */
     
-    --mangaba-accent: 65 75% 50%;         /* Amarelo de destaque */
-    --mangaba-accent-dark: 60 70% 40%;    /* Amarelo escuro */
-    --mangaba-accent-light: 70 80% 60%;   /* Amarelo claro */
-    --mangaba-accent-citrus: 68 78% 55%;  /* Amarelo cítrico */
+    --mangaba-red: 0 84% 60%;             /* Vermelho alerta */
+    --mangaba-red-light: 0 84% 70%;       /* Vermelho claro */
+    --mangaba-red-dark: 0 84% 50%;        /* Vermelho escuro */
     
-    --mangaba-neutral: 45 20% 95%;        /* Neutro claro */
-    --mangaba-neutral-dark: 45 15% 20%;   /* Neutro escuro */
-    --mangaba-neutral-medium: 45 10% 60%; /* Neutro médio */
-    --mangaba-surface: 45 25% 98%;        /* Superfície base */
+    --mangaba-white: 0 0% 100%;           /* Branco puro */
+    --mangaba-gray-50: 210 20% 98%;       /* Cinza muito claro */
+    --mangaba-gray-100: 210 20% 96%;      /* Cinza claro */
+    --mangaba-gray-900: 210 20% 10%;      /* Cinza escuro */
 
     /* Neutral Ultra Palette */
     --mangaba-cream: 45 90% 96%;          /* Creme da polpa */
@@ -41,27 +38,27 @@ All colors MUST be HSL.
     --mangaba-lime: 65 85% 70%;           /* Lima tropical */
     --mangaba-bronze: 35 85% 45%;         /* Bronze antigo */
     
-    /* Cores Principais - Melhor Contraste */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 9%;
+    /* Cores Principais - Paleta Mangaba AI */
+    --background: var(--mangaba-white);
+    --foreground: var(--mangaba-gray-900);
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
+    --card: var(--mangaba-white);
+    --card-foreground: var(--mangaba-gray-900);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
+    --popover: var(--mangaba-white);
+    --popover-foreground: var(--mangaba-gray-900);
 
-    --primary: 142 76% 36%;
-    --primary-foreground: 0 0% 98%;
+    --primary: var(--mangaba-green);
+    --primary-foreground: var(--mangaba-white);
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
+    --secondary: var(--mangaba-gray-100);
+    --secondary-foreground: var(--mangaba-gray-900);
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: var(--mangaba-gray-50);
+    --muted-foreground: var(--mangaba-gray-900);
 
-    --accent: 142 76% 36%;
-    --accent-foreground: 0 0% 98%;
+    --accent: var(--mangaba-yellow);
+    --accent-foreground: var(--mangaba-gray-900);
 
     --destructive: 0 75% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -72,19 +69,21 @@ All colors MUST be HSL.
 
     --radius: 1rem;
 
-    /* Ultra Advanced Gradients */
-    --gradient-mangaba-hero: linear-gradient(135deg, hsl(var(--mangaba-gold)), hsl(var(--mangaba-orange)), hsl(var(--mangaba-yellow)), hsl(var(--mangaba-coral)));
-    --gradient-mangaba-primary: linear-gradient(135deg, hsl(var(--mangaba-gold)), hsl(var(--mangaba-amber)));
-    --gradient-mangaba-secondary: linear-gradient(135deg, hsl(var(--mangaba-green)), hsl(var(--mangaba-lime)));
+    /* Gradientes com Paleta Mangaba AI */
+    --gradient-mangaba-hero: linear-gradient(135deg, hsl(var(--mangaba-green)), hsl(var(--mangaba-yellow)));
+    --gradient-mangaba-primary: linear-gradient(135deg, hsl(var(--mangaba-green)), hsl(var(--mangaba-green-light)));
+    --gradient-mangaba-secondary: linear-gradient(135deg, hsl(var(--mangaba-yellow)), hsl(var(--mangaba-yellow-light)));
     --gradient-tropical: linear-gradient(180deg, hsl(var(--mangaba-green)), hsl(var(--mangaba-yellow)));
-    --gradient-sunset: linear-gradient(45deg, hsl(var(--mangaba-orange)), hsl(var(--mangaba-gold)), hsl(var(--mangaba-yellow)));
-    --gradient-dawn: linear-gradient(180deg, hsl(var(--mangaba-yellow-light)), hsl(var(--mangaba-orange-light)));
-    --gradient-earth: linear-gradient(135deg, hsl(var(--mangaba-earth)), hsl(var(--mangaba-bronze)));
-    --gradient-ocean: linear-gradient(135deg, hsl(var(--mangaba-green)), hsl(var(--mangaba-green-mint)));
-    --gradient-canvas: linear-gradient(135deg, hsl(var(--mangaba-pearl)), hsl(var(--mangaba-cream)));
+    --gradient-sunset: linear-gradient(45deg, hsl(var(--mangaba-yellow)), hsl(var(--mangaba-green)));
+    --gradient-canvas: linear-gradient(135deg, hsl(var(--mangaba-white)), hsl(var(--mangaba-gray-50)));
     --gradient-feature: linear-gradient(135deg, hsl(var(--mangaba-green-light)), hsl(var(--mangaba-yellow-light)));
-    --gradient-card: linear-gradient(135deg, hsl(45 98% 99%), hsl(45 92% 97%));
-    --gradient-shimmer: linear-gradient(45deg, hsl(var(--mangaba-gold)), hsl(var(--mangaba-gold-glow)), hsl(var(--mangaba-gold)));
+    --gradient-card: linear-gradient(135deg, hsl(var(--mangaba-white)), hsl(var(--mangaba-gray-50)));
+    --gradient-shimmer: linear-gradient(45deg, hsl(var(--mangaba-green)), hsl(var(--mangaba-yellow)), hsl(var(--mangaba-green)));
+
+    /* Sombras com Cores Mangaba AI */
+    --shadow-mangaba: 0 15px 45px -10px hsl(var(--mangaba-green) / 0.3);
+    --shadow-mangaba-lg: 0 25px 70px -15px hsl(var(--mangaba-green) / 0.4);
+    --shadow-feature: 0 10px 35px -8px hsl(var(--mangaba-green) / 0.25);
 
     /* Ultra Advanced Shadows */
     --shadow-mangaba: 0 15px 45px -10px hsl(var(--mangaba-gold) / 0.4);
