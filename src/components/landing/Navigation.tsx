@@ -16,30 +16,30 @@ export const Navigation = () => {
                 Mangaba AI Flow
               </h1>
               <p className="text-xs text-muted-foreground">
-                Visual AI Builder
+                Construtor Visual de IA
               </p>
             </div>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
             <a href="#features" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Features
+              Recursos
             </a>
             <a href="#demo" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Demo
+              Demonstração
             </a>
             <a href="#pricing" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Pricing
+              Preços
             </a>
             <a href="#contact" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Contact
+              Contato
             </a>
           </div>
 
           <div className="flex items-center space-x-4">
             <Button variant="ghost" size="sm" asChild>
               <Link to="/flow">
-                Dashboard
+                Painel
               </Link>
             </Button>
             <Button 
@@ -48,7 +48,7 @@ export const Navigation = () => {
               asChild
             >
               <Link to="/flow">
-                Start Building
+                Começar a Construir
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

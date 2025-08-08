@@ -16,43 +16,43 @@ import {
 const features = [
   {
     icon: Brain,
-    title: 'Google Gemini Integration',
-    description: 'Leverage the power of Google\'s latest Gemini AI model for intelligent processing and generation.',
+    title: 'Integração Google Gemini',
+    description: 'Aproveite o poder do mais recente modelo Gemini AI do Google para processamento e geração inteligente.',
     color: 'bg-mangaba-gold',
     gradient: 'bg-gradient-feature'
   },
   {
     icon: Workflow,
-    title: 'Visual Flow Builder',
-    description: 'Create complex AI workflows with our intuitive drag-and-drop interface. No coding required.',
+    title: 'Construtor de Fluxo Visual',
+    description: 'Crie fluxos de trabalho de IA complexos com nossa interface intuitiva de arrastar e soltar. Não é necessário programar.',
     color: 'bg-mangaba-green',
     gradient: 'bg-gradient-tropical'
   },
   {
     icon: Zap,
-    title: 'Real-time Execution',
-    description: 'See your AI flows in action with real-time execution and instant feedback on results.',
+    title: 'Execução em Tempo Real',
+    description: 'Veja seus fluxos de IA em ação com execução em tempo real e feedback instantâneo dos resultados.',
     color: 'bg-mangaba-orange',
     gradient: 'bg-gradient-sunset'
   },
   {
     icon: Bot,
-    title: 'Smart Chatbots',
-    description: 'Build intelligent conversational agents that can handle complex multi-turn conversations.',
+    title: 'Chatbots Inteligentes',
+    description: 'Construa agentes conversacionais inteligentes que podem lidar com conversas complexas de múltiplas rodadas.',
     color: 'bg-mangaba-yellow',
     gradient: 'bg-gradient-mangaba-secondary'
   },
   {
     icon: Database,
-    title: 'Data Integration',
-    description: 'Connect to databases, APIs, and external services to enrich your AI workflows with real data.',
+    title: 'Integração de Dados',
+    description: 'Conecte-se a bancos de dados, APIs e serviços externos para enriquecer seus fluxos de IA com dados reais.',
     color: 'bg-mangaba-earth',
     gradient: 'bg-gradient-card'
   },
   {
     icon: Shield,
-    title: 'Enterprise Security',
-    description: 'Built with enterprise-grade security features to protect your data and AI workflows.',
+    title: 'Segurança Empresarial',
+    description: 'Construído com recursos de segurança de nível empresarial para proteger seus dados e fluxos de IA.',
     color: 'bg-mangaba-green-dark',
     gradient: 'bg-gradient-feature'
   }
@@ -65,17 +65,17 @@ export const FeaturesSection = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <Badge className="mb-4 bg-mangaba-green/10 text-mangaba-green border-mangaba-green/20">
             <Sparkles className="w-4 h-4 mr-2" />
-            Powerful Features
+            Recursos Poderosos
           </Badge>
           
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-            Everything you need to build{' '}
-            <span className="text-gradient">intelligent AI workflows</span>
+            Tudo que você precisa para construir{' '}
+            <span className="text-gradient">fluxos de IA inteligentes</span>
           </h2>
           
           <p className="text-xl text-muted-foreground">
-            From simple chatbots to complex multi-step AI processes, Mangaba AI Flow 
-            provides all the tools you need to bring your ideas to life.
+            De chatbots simples a processos complexos de IA multi-etapas, o Mangaba AI Flow 
+            fornece todas as ferramentas que você precisa para dar vida às suas ideias.
           </p>
         </div>
 
@@ -111,24 +111,24 @@ export const FeaturesSection = () => {
             <div className="w-16 h-16 bg-gradient-mangaba-primary rounded-full flex items-center justify-center mx-auto mb-4">
               <Code className="h-8 w-8 text-white" />
             </div>
-            <h4 className="text-lg font-semibold text-foreground mb-2">No Code Needed</h4>
-            <p className="text-muted-foreground">Build complex AI workflows without writing a single line of code.</p>
+            <h4 className="text-lg font-semibold text-foreground mb-2">Sem Código Necessário</h4>
+            <p className="text-muted-foreground">Construa fluxos de trabalho de IA complexos sem escrever uma única linha de código.</p>
           </div>
 
           <div className="text-center">
             <div className="w-16 h-16 bg-gradient-tropical rounded-full flex items-center justify-center mx-auto mb-4">
               <Globe className="h-8 w-8 text-white" />
             </div>
-            <h4 className="text-lg font-semibold text-foreground mb-2">Cloud Native</h4>
-            <p className="text-muted-foreground">Deploy and scale your AI flows in the cloud with enterprise reliability.</p>
+            <h4 className="text-lg font-semibold text-foreground mb-2">Nativo da Nuvem</h4>
+            <p className="text-muted-foreground">Implante e escale seus fluxos de IA na nuvem com confiabilidade empresarial.</p>
           </div>
 
           <div className="text-center">
             <div className="w-16 h-16 bg-gradient-sunset rounded-full flex items-center justify-center mx-auto mb-4">
               <MessageSquare className="h-8 w-8 text-white" />
             </div>
-            <h4 className="text-lg font-semibold text-foreground mb-2">Team Collaboration</h4>
-            <p className="text-muted-foreground">Work together with your team to build and iterate on AI workflows.</p>
+            <h4 className="text-lg font-semibold text-foreground mb-2">Colaboração em Equipe</h4>
+            <p className="text-muted-foreground">Trabalhe junto com sua equipe para construir e iterar fluxos de trabalho de IA.</p>
           </div>
         </div>
       </div>

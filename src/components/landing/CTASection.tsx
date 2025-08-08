@@ -18,13 +18,13 @@ export const CTASection = () => {
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Ready to build your first{' '}
-              <span className="text-gradient">AI workflow</span>?
+              Pronto para construir seu primeiro{' '}
+              <span className="text-gradient">fluxo de trabalho de IA</span>?
             </h2>
 
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join thousands of developers and businesses who are already using Mangaba AI Flow 
-              to create powerful AI applications without code.
+              Junte-se a milhares de desenvolvedores e empresas que já estão usando o Mangaba AI Flow 
+              para criar aplicações de IA poderosas sem código.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -35,7 +35,7 @@ export const CTASection = () => {
               >
                 <Link to="/flow">
                   <Zap className="mr-2 h-5 w-5" />
-                  Start Building for Free
+                  Começar a Construir Gratuitamente
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -45,12 +45,12 @@ export const CTASection = () => {
                 size="lg"
                 className="border-mangaba-gold text-mangaba-gold hover:bg-mangaba-gold hover:text-white transition-all duration-300 text-lg px-8 py-4 h-auto"
               >
-                Schedule Demo
+                Agendar Demonstração
               </Button>
             </div>
 
             <div className="mt-8 text-sm text-muted-foreground">
-              No credit card required • Free forever plan • Enterprise options available
+              Sem cartão de crédito necessário • Plano gratuito para sempre • Opções empresariais disponíveis
             </div>
           </div>
         </Card>

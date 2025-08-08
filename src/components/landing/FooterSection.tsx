@@ -17,13 +17,13 @@ export const FooterSection = () => {
                   Mangaba AI Flow
                 </h3>
                 <p className="text-xs text-muted-foreground">
-                  Visual AI Builder
+                  Construtor Visual de IA
                 </p>
               </div>
             </div>
             <p className="text-sm text-muted-foreground">
-              Build powerful AI workflows with our intuitive visual interface. 
-              No code required.
+              Construa fluxos de trabalho de IA poderosos com nossa interface visual intuitiva. 
+              Sem código necessário.
             </p>
             <div className="flex space-x-4">
               <Github className="h-5 w-5 text-muted-foreground hover:text-mangaba-gold cursor-pointer transition-colors" />
@@ -35,36 +35,36 @@ export const FooterSection = () => {
 
           {/* Product */}
           <div>
-            <h4 className="text-sm font-semibold text-foreground mb-4">Product</h4>
+            <h4 className="text-sm font-semibold text-foreground mb-4">Produto</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#features" className="hover:text-mangaba-gold transition-colors">Features</a></li>
-              <li><a href="#pricing" className="hover:text-mangaba-gold transition-colors">Pricing</a></li>
-              <li><a href="#demo" className="hover:text-mangaba-gold transition-colors">Demo</a></li>
-              <li><a href="#integrations" className="hover:text-mangaba-gold transition-colors">Integrations</a></li>
-              <li><a href="#changelog" className="hover:text-mangaba-gold transition-colors">Changelog</a></li>
+              <li><a href="#features" className="hover:text-mangaba-gold transition-colors">Recursos</a></li>
+              <li><a href="#pricing" className="hover:text-mangaba-gold transition-colors">Preços</a></li>
+              <li><a href="#demo" className="hover:text-mangaba-gold transition-colors">Demonstração</a></li>
+              <li><a href="#integrations" className="hover:text-mangaba-gold transition-colors">Integrações</a></li>
+              <li><a href="#changelog" className="hover:text-mangaba-gold transition-colors">Histórico de Mudanças</a></li>
             </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h4 className="text-sm font-semibold text-foreground mb-4">Company</h4>
+            <h4 className="text-sm font-semibold text-foreground mb-4">Empresa</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#about" className="hover:text-mangaba-gold transition-colors">About</a></li>
+              <li><a href="#about" className="hover:text-mangaba-gold transition-colors">Sobre</a></li>
               <li><a href="#blog" className="hover:text-mangaba-gold transition-colors">Blog</a></li>
-              <li><a href="#careers" className="hover:text-mangaba-gold transition-colors">Careers</a></li>
-              <li><a href="#contact" className="hover:text-mangaba-gold transition-colors">Contact</a></li>
-              <li><a href="#press" className="hover:text-mangaba-gold transition-colors">Press Kit</a></li>
+              <li><a href="#careers" className="hover:text-mangaba-gold transition-colors">Carreiras</a></li>
+              <li><a href="#contact" className="hover:text-mangaba-gold transition-colors">Contato</a></li>
+              <li><a href="#press" className="hover:text-mangaba-gold transition-colors">Kit de Imprensa</a></li>
             </ul>
           </div>
 
           {/* Resources */}
           <div>
-            <h4 className="text-sm font-semibold text-foreground mb-4">Resources</h4>
+            <h4 className="text-sm font-semibold text-foreground mb-4">Recursos</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#docs" className="hover:text-mangaba-gold transition-colors">Documentation</a></li>
-              <li><a href="#tutorials" className="hover:text-mangaba-gold transition-colors">Tutorials</a></li>
-              <li><a href="#community" className="hover:text-mangaba-gold transition-colors">Community</a></li>
-              <li><a href="#support" className="hover:text-mangaba-gold transition-colors">Support</a></li>
+              <li><a href="#docs" className="hover:text-mangaba-gold transition-colors">Documentação</a></li>
+              <li><a href="#tutorials" className="hover:text-mangaba-gold transition-colors">Tutoriais</a></li>
+              <li><a href="#community" className="hover:text-mangaba-gold transition-colors">Comunidade</a></li>
+              <li><a href="#support" className="hover:text-mangaba-gold transition-colors">Suporte</a></li>
               <li><a href="#status" className="hover:text-mangaba-gold transition-colors">Status</a></li>
             </ul>
           </div>
@@ -77,9 +77,9 @@ export const FooterSection = () => {
             © 2024 Mangaba AI Flow. All rights reserved.
           </div>
           <div className="flex space-x-6 mt-4 sm:mt-0">
-            <a href="#privacy" className="hover:text-mangaba-gold transition-colors">Privacy Policy</a>
-            <a href="#terms" className="hover:text-mangaba-gold transition-colors">Terms of Service</a>
-            <a href="#cookies" className="hover:text-mangaba-gold transition-colors">Cookie Policy</a>
+            <a href="#privacy" className="hover:text-mangaba-gold transition-colors">Política de Privacidade</a>
+            <a href="#terms" className="hover:text-mangaba-gold transition-colors">Termos de Serviço</a>
+            <a href="#cookies" className="hover:text-mangaba-gold transition-colors">Política de Cookies</a>
           </div>
         </div>
       </div>

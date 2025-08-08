@@ -11,15 +11,15 @@ export const DemoSection = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <Badge className="mb-4 bg-white/20 text-white border-white/30">
             <Play className="w-4 h-4 mr-2" />
-            Live Demo
+            Demonstração ao Vivo
           </Badge>
           
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            See Mangaba AI Flow in Action
+            Veja o Mangaba AI Flow em Ação
           </h2>
           
           <p className="text-xl text-white/80">
-            Watch how easy it is to build powerful AI workflows with our visual interface.
+            Veja como é fácil construir fluxos de trabalho de IA poderosos com nossa interface visual.
           </p>
         </div>
 
@@ -33,16 +33,16 @@ export const DemoSection = () => {
                   className="bg-gradient-mangaba-primary hover:shadow-glow transition-all duration-300"
                 >
                   <Play className="mr-2 h-6 w-6" />
-                  Watch Demo Video
+                  Assistir Vídeo de Demonstração
                 </Button>
               </div>
               
               <div className="text-center">
                 <h3 className="text-xl font-semibold text-foreground mb-2">
-                  Interactive Flow Builder
+                  Construtor de Fluxo Interativo
                 </h3>
                 <p className="text-muted-foreground">
-                  See how to create a complete AI chatbot in under 5 minutes
+                  Veja como criar um chatbot de IA completo em menos de 5 minutos
                 </p>
               </div>
             </Card>
@@ -56,10 +56,10 @@ export const DemoSection = () => {
               </div>
               <div>
                 <h4 className="text-lg font-semibold text-white mb-2">
-                  Drag & Drop Components
+                  Componentes Arrastar e Soltar
                 </h4>
                 <p className="text-white/80">
-                  Simply drag AI components from the sidebar to build your workflow visually.
+                  Simplesmente arraste componentes de IA da barra lateral para construir seu fluxo de trabalho visualmente.
                 </p>
               </div>
             </div>
@@ -70,10 +70,10 @@ export const DemoSection = () => {
               </div>
               <div>
                 <h4 className="text-lg font-semibold text-white mb-2">
-                  Configure with Gemini AI
+                  Configurar com Gemini AI
                 </h4>
                 <p className="text-white/80">
-                  Connect to Google Gemini and configure your AI models with a few clicks.
+                  Conecte-se ao Google Gemini e configure seus modelos de IA com alguns cliques.
                 </p>
               </div>
             </div>
@@ -84,10 +84,10 @@ export const DemoSection = () => {
               </div>
               <div>
                 <h4 className="text-lg font-semibold text-white mb-2">
-                  Test & Deploy
+                  Testar e Implantar
                 </h4>
                 <p className="text-white/80">
-                  Test your flow in real-time and deploy to production with one click.
+                  Teste seu fluxo em tempo real e implante em produção com um clique.
                 </p>
               </div>
             </div>
@@ -100,7 +100,7 @@ export const DemoSection = () => {
                 asChild
               >
                 <Link to="/flow">
-                  Try It Yourself
+                  Experimente Você Mesmo
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -112,19 +112,19 @@ export const DemoSection = () => {
         <div className="mt-20 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="text-center">
             <div className="text-3xl font-bold text-white mb-2">50K+</div>
-            <div className="text-white/80">AI Flows Created</div>
+            <div className="text-white/80">Fluxos de IA Criados</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-white mb-2">10K+</div>
-            <div className="text-white/80">Active Developers</div>
+            <div className="text-white/80">Desenvolvedores Ativos</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-white mb-2">99.9%</div>
-            <div className="text-white/80">Uptime</div>
+            <div className="text-white/80">Tempo Ativo</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-white mb-2">24/7</div>
-            <div className="text-white/80">Support</div>
+            <div className="text-white/80">Suporte</div>
           </div>
         </div>
       </div>

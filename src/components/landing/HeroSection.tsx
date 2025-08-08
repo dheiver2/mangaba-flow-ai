@@ -15,20 +15,20 @@ export const HeroSection = () => {
         <div className="text-center max-w-4xl mx-auto">
           <Badge className="mb-6 bg-gradient-mangaba-primary text-white border-0 px-4 py-2 text-sm font-medium">
             <Sparkles className="w-4 h-4 mr-2" />
-            Powered by Google Gemini AI
+            Potencializado pelo Google Gemini AI
           </Badge>
 
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-            Build Powerful{' '}
+            Construa{' '}
             <span className="text-gradient">
-              AI Flows
+              Fluxos de IA
             </span>
-            {' '}Visually
+            {' '}Poderosos Visualmente
           </h1>
 
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Create sophisticated AI workflows with our intuitive drag-and-drop interface. 
-            Connect LLMs, tools, and data sources without writing a single line of code.
+            Crie fluxos de trabalho de IA sofisticados com nossa interface intuitiva de arrastar e soltar. 
+            Conecte LLMs, ferramentas e fontes de dados sem escrever uma única linha de código.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -39,7 +39,7 @@ export const HeroSection = () => {
             >
               <Link to="/flow">
                 <Zap className="mr-2 h-5 w-5" />
-                Start Building Now
+                Começar a Construir Agora
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
@@ -50,22 +50,22 @@ export const HeroSection = () => {
               className="border-mangaba-gold text-mangaba-gold hover:bg-mangaba-gold hover:text-white transition-all duration-300 text-lg px-8 py-4 h-auto"
             >
               <Play className="mr-2 h-5 w-5" />
-              Watch Demo
+              Assistir Demonstração
             </Button>
           </div>
 
           <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-mangaba-green rounded-full"></div>
-              No Code Required
+              Sem Código Necessário
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-mangaba-orange rounded-full"></div>
-              Real-time Collaboration
+              Colaboração em Tempo Real
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-mangaba-yellow rounded-full"></div>
-              Enterprise Ready
+              Pronto para Empresas
             </div>
           </div>
         </div>
@@ -80,9 +80,9 @@ export const HeroSection = () => {
                   <div className="w-8 h-8 bg-mangaba-green rounded-lg flex items-center justify-center">
                     <Zap className="h-4 w-4 text-white" />
                   </div>
-                  <span className="font-medium">Input Node</span>
+                  <span className="font-medium">Nó de Entrada</span>
                 </div>
-                <p className="text-sm text-muted-foreground">Capture user input</p>
+                <p className="text-sm text-muted-foreground">Capturar entrada do usuário</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 shadow-node border-l-4 border-mangaba-gold">
@@ -92,7 +92,7 @@ export const HeroSection = () => {
                   </div>
                   <span className="font-medium">Gemini AI</span>
                 </div>
-                <p className="text-sm text-muted-foreground">Process with AI</p>
+                <p className="text-sm text-muted-foreground">Processar com IA</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 shadow-node border-l-4 border-mangaba-orange">
@@ -100,9 +100,9 @@ export const HeroSection = () => {
                   <div className="w-8 h-8 bg-mangaba-orange rounded-lg flex items-center justify-center">
                     <ArrowRight className="h-4 w-4 text-white" />
                   </div>
-                  <span className="font-medium">Output</span>
+                  <span className="font-medium">Saída</span>
                 </div>
-                <p className="text-sm text-muted-foreground">Display results</p>
+                <p className="text-sm text-muted-foreground">Exibir resultados</p>
               </div>
             </div>
             

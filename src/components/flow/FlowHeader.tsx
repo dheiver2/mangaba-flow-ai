@@ -47,7 +47,7 @@ export const FlowHeader = ({ onSidebarToggle, sidebarOpen, onRunFlow, isExecutin
               Mangaba AI Flow
             </h1>
             <p className="text-xs text-white/90 drop-shadow">
-              Visual AI Flow Builder
+              Construtor Visual de Fluxos de IA
             </p>
           </div>
         </div>
@@ -62,7 +62,7 @@ export const FlowHeader = ({ onSidebarToggle, sidebarOpen, onRunFlow, isExecutin
         >
           <Link to="/">
             <Home className="h-4 w-4 mr-2" />
-            Home
+            Início
           </Link>
         </Button>
         
@@ -72,7 +72,7 @@ export const FlowHeader = ({ onSidebarToggle, sidebarOpen, onRunFlow, isExecutin
           className="text-white hover:bg-white/20 transition-all duration-300"
         >
           <Save className="h-4 w-4 mr-2" />
-          Save Flow
+          Salvar Fluxo
         </Button>
         
         <Button 
@@ -83,7 +83,7 @@ export const FlowHeader = ({ onSidebarToggle, sidebarOpen, onRunFlow, isExecutin
           disabled={isExecuting}
         >
           <Play className="h-4 w-4 mr-2" />
-          {isExecuting ? 'Running...' : 'Run Flow'}
+          {isExecuting ? 'Executando...' : 'Executar Fluxo'}
         </Button>
         
         <ApiKeyModal />
