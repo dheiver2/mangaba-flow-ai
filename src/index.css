@@ -41,27 +41,27 @@ All colors MUST be HSL.
     --mangaba-lime: 65 85% 70%;           /* Lima tropical */
     --mangaba-bronze: 35 85% 45%;         /* Bronze antigo */
     
-    /* Cores Principais do Tema Mangaba AI */
-    --background: var(--mangaba-surface);
-    --foreground: var(--mangaba-neutral-dark);
+    /* Cores Principais - Melhor Contraste */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
 
-    --card: var(--mangaba-neutral);
-    --card-foreground: var(--mangaba-neutral-dark);
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
 
-    --popover: var(--mangaba-neutral);
-    --popover-foreground: var(--mangaba-neutral-dark);
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
 
-    --primary: var(--mangaba-primary);
-    --primary-foreground: 0 0% 100%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: var(--mangaba-secondary);
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
 
-    --muted: var(--mangaba-neutral);
-    --muted-foreground: var(--mangaba-neutral-medium);
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: var(--mangaba-accent);
-    --accent-foreground: var(--mangaba-neutral-dark);
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 75% 60%;
     --destructive-foreground: 0 0% 100%;
