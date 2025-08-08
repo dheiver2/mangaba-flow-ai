@@ -288,6 +288,10 @@ All colors MUST be HSL.
                 linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent))) border-box;
     background-size: 200% 200%;
     animation: gradient 6s ease infinite;
+    /* Forçar visibilidade */
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
   }
 
   .glass-effect {
@@ -348,5 +352,37 @@ All colors MUST be HSL.
       transform: translateY(-10vh) rotate(360deg);
       opacity: 0;
     }
+    }
+  }
+
+  /* CORREÇÕES ESPECÍFICAS PARA FLOWSIDEBAR - FORÇAR VISIBILIDADE */
+  .flow-sidebar-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 10 !important;
+    background-color: hsl(var(--background)) !important;
+    border: 1px solid hsl(var(--border)) !important;
+  }
+
+  .flow-sidebar-template {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+    position: relative !important;
+    z-index: 10 !important;
+    background-color: hsl(var(--background)) !important;
+    border: 1px solid hsl(var(--border)) !important;
+  }
+
+  .flow-sidebar-component {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+    position: relative !important;
+    z-index: 10 !important;
+    background-color: hsl(var(--background)) !important;
+    border: 1px solid hsl(var(--border)) !important;
   }
 }
