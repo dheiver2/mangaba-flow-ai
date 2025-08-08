@@ -8,40 +8,52 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Mangaba Advanced Color Palette */
-    --mangaba-gold: 45 95% 68%;           /* Dourado vibrante */
-    --mangaba-gold-dark: 42 85% 55%;      /* Dourado escuro */
-    --mangaba-gold-light: 48 98% 78%;     /* Dourado claro */
+    /* Mangaba Ultra Advanced Color Palette */
+    --mangaba-gold: 45 98% 70%;           /* Dourado radiante */
+    --mangaba-gold-dark: 42 88% 58%;      /* Dourado profundo */
+    --mangaba-gold-light: 48 100% 82%;    /* Dourado luminoso */
+    --mangaba-gold-glow: 45 95% 85%;      /* Dourado brilhante */
     
-    --mangaba-orange: 32 92% 70%;         /* Laranja principal */
-    --mangaba-orange-dark: 28 85% 58%;    /* Laranja escuro */
-    --mangaba-orange-light: 36 95% 80%;   /* Laranja claro */
+    --mangaba-orange: 32 95% 72%;         /* Laranja vibrante */
+    --mangaba-orange-dark: 28 88% 60%;    /* Laranja escuro */
+    --mangaba-orange-light: 36 98% 82%;   /* Laranja claro */
+    --mangaba-orange-coral: 30 92% 68%;   /* Coral mangaba */
     
-    --mangaba-green: 140 70% 65%;         /* Verde tropical */
-    --mangaba-green-dark: 135 65% 52%;    /* Verde escuro */
-    --mangaba-green-light: 145 75% 75%;   /* Verde claro */
+    --mangaba-green: 140 75% 68%;         /* Verde tropical */
+    --mangaba-green-dark: 135 70% 55%;    /* Verde profundo */
+    --mangaba-green-light: 145 80% 78%;   /* Verde claro */
+    --mangaba-green-mint: 150 70% 75%;    /* Verde menta */
     
-    --mangaba-yellow: 50 95% 75%;         /* Amarelo vibrante */
-    --mangaba-yellow-dark: 47 88% 62%;    /* Amarelo escuro */
-    --mangaba-yellow-light: 53 98% 85%;   /* Amarelo claro */
+    --mangaba-yellow: 50 98% 78%;         /* Amarelo solar */
+    --mangaba-yellow-dark: 47 90% 65%;    /* Amarelo dourado */
+    --mangaba-yellow-light: 53 100% 88%;  /* Amarelo claro */
+    --mangaba-yellow-citrus: 48 95% 75%;  /* Amarelo cítrico */
     
-    --mangaba-earth: 35 70% 50%;          /* Tom terroso */
-    --mangaba-earth-dark: 32 65% 40%;     /* Terra escuro */
-    --mangaba-earth-light: 38 75% 60%;    /* Terra claro */
+    --mangaba-earth: 35 75% 52%;          /* Terra rica */
+    --mangaba-earth-dark: 32 70% 42%;     /* Terra escura */
+    --mangaba-earth-light: 38 80% 62%;    /* Terra clara */
+    --mangaba-bark: 30 60% 38%;           /* Casca da árvore */
 
-    /* Neutral Advanced Palette */
-    --mangaba-cream: 45 85% 95%;          /* Creme da polpa */
-    --mangaba-sand: 42 60% 88%;           /* Areia dourada */
-    --mangaba-bark: 35 45% 35%;           /* Casca da árvore */
+    /* Neutral Ultra Palette */
+    --mangaba-cream: 45 90% 96%;          /* Creme da polpa */
+    --mangaba-sand: 42 70% 90%;           /* Areia dourada */
+    --mangaba-pearl: 45 85% 98%;          /* Pérola mangaba */
+    --mangaba-mist: 48 60% 94%;           /* Névoa dourada */
+
+    /* Advanced Accent Colors */
+    --mangaba-coral: 25 88% 65%;          /* Coral tropical */
+    --mangaba-amber: 40 92% 72%;          /* Âmbar luminoso */
+    --mangaba-lime: 65 85% 70%;           /* Lima tropical */
+    --mangaba-bronze: 35 85% 45%;         /* Bronze antigo */
     
-    /* Main Colors - Mangaba Advanced Theme */
-    --background: var(--mangaba-cream);
+    /* Main Theme Colors */
+    --background: var(--mangaba-pearl);
     --foreground: var(--mangaba-bark);
 
-    --card: 45 90% 97%;
+    --card: var(--mangaba-cream);
     --card-foreground: var(--mangaba-bark);
 
-    --popover: var(--mangaba-cream);
+    --popover: var(--mangaba-pearl);
     --popover-foreground: var(--mangaba-bark);
 
     --primary: var(--mangaba-gold);
@@ -50,7 +62,7 @@ All colors MUST be HSL.
     --secondary: var(--mangaba-green);
     --secondary-foreground: 0 0% 100%;
 
-    --muted: var(--mangaba-sand);
+    --muted: var(--mangaba-mist);
     --muted-foreground: var(--mangaba-earth);
 
     --accent: var(--mangaba-orange);
@@ -59,45 +71,43 @@ All colors MUST be HSL.
     --destructive: 0 75% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 45 50% 82%;
-    --input: 45 60% 90%;
+    --border: 45 55% 84%;
+    --input: var(--mangaba-sand);
     --ring: var(--mangaba-gold);
 
-    --radius: 0.875rem;
+    --radius: 1rem;
 
-    /* Sidebar - Advanced Mangaba Theme */
-    --sidebar-background: 45 70% 92%;
-    --sidebar-foreground: var(--mangaba-bark);
-    --sidebar-primary: var(--mangaba-gold);
-    --sidebar-primary-foreground: var(--mangaba-bark);
-    --sidebar-accent: var(--mangaba-orange);
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 45 45% 80%;
-    --sidebar-ring: var(--mangaba-gold);
-
-    /* Advanced Gradients */
-    --gradient-mangaba-hero: linear-gradient(135deg, hsl(var(--mangaba-gold)), hsl(var(--mangaba-orange)), hsl(var(--mangaba-yellow)));
-    --gradient-mangaba-primary: linear-gradient(135deg, hsl(var(--mangaba-gold)), hsl(var(--mangaba-orange)));
-    --gradient-mangaba-secondary: linear-gradient(135deg, hsl(var(--mangaba-green)), hsl(var(--mangaba-yellow)));
+    /* Ultra Advanced Gradients */
+    --gradient-mangaba-hero: linear-gradient(135deg, hsl(var(--mangaba-gold)), hsl(var(--mangaba-orange)), hsl(var(--mangaba-yellow)), hsl(var(--mangaba-coral)));
+    --gradient-mangaba-primary: linear-gradient(135deg, hsl(var(--mangaba-gold)), hsl(var(--mangaba-amber)));
+    --gradient-mangaba-secondary: linear-gradient(135deg, hsl(var(--mangaba-green)), hsl(var(--mangaba-lime)));
     --gradient-tropical: linear-gradient(180deg, hsl(var(--mangaba-green)), hsl(var(--mangaba-yellow)));
     --gradient-sunset: linear-gradient(45deg, hsl(var(--mangaba-orange)), hsl(var(--mangaba-gold)), hsl(var(--mangaba-yellow)));
-    --gradient-canvas: linear-gradient(135deg, hsl(var(--mangaba-cream)), hsl(45 95% 98%));
+    --gradient-dawn: linear-gradient(180deg, hsl(var(--mangaba-yellow-light)), hsl(var(--mangaba-orange-light)));
+    --gradient-earth: linear-gradient(135deg, hsl(var(--mangaba-earth)), hsl(var(--mangaba-bronze)));
+    --gradient-ocean: linear-gradient(135deg, hsl(var(--mangaba-green)), hsl(var(--mangaba-green-mint)));
+    --gradient-canvas: linear-gradient(135deg, hsl(var(--mangaba-pearl)), hsl(var(--mangaba-cream)));
     --gradient-feature: linear-gradient(135deg, hsl(var(--mangaba-green-light)), hsl(var(--mangaba-yellow-light)));
-    --gradient-card: linear-gradient(135deg, hsl(45 95% 99%), hsl(45 90% 96%));
+    --gradient-card: linear-gradient(135deg, hsl(45 98% 99%), hsl(45 92% 97%));
+    --gradient-shimmer: linear-gradient(45deg, hsl(var(--mangaba-gold)), hsl(var(--mangaba-gold-glow)), hsl(var(--mangaba-gold)));
 
-    /* Advanced Shadows */
-    --shadow-mangaba: 0 12px 40px -8px hsl(var(--mangaba-gold) / 0.35);
-    --shadow-mangaba-lg: 0 20px 60px -12px hsl(var(--mangaba-gold) / 0.4);
-    --shadow-node: 0 6px 25px -3px hsl(var(--mangaba-orange) / 0.25);
-    --shadow-float: 0 25px 50px -12px hsl(var(--mangaba-gold) / 0.5);
-    --shadow-glow: 0 0 50px hsl(var(--mangaba-gold) / 0.6);
-    --shadow-feature: 0 8px 30px -5px hsl(var(--mangaba-green) / 0.3);
+    /* Ultra Advanced Shadows */
+    --shadow-mangaba: 0 15px 45px -10px hsl(var(--mangaba-gold) / 0.4);
+    --shadow-mangaba-lg: 0 25px 70px -15px hsl(var(--mangaba-gold) / 0.5);
+    --shadow-mangaba-xl: 0 35px 100px -20px hsl(var(--mangaba-gold) / 0.6);
+    --shadow-node: 0 8px 30px -5px hsl(var(--mangaba-orange) / 0.3);
+    --shadow-float: 0 30px 60px -15px hsl(var(--mangaba-gold) / 0.6);
+    --shadow-glow: 0 0 60px hsl(var(--mangaba-gold) / 0.8);
+    --shadow-feature: 0 10px 35px -8px hsl(var(--mangaba-green) / 0.35);
+    --shadow-inset: inset 0 2px 10px hsl(var(--mangaba-gold) / 0.1);
+    --shadow-neon: 0 0 30px hsl(var(--mangaba-gold)), 0 0 60px hsl(var(--mangaba-gold) / 0.5);
 
-    /* Advanced Animations */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Advanced Animations & Transitions */
+    --transition-ultra: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     --bounce-gentle: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     --ease-flow: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
   .dark {
@@ -167,47 +177,182 @@ All colors MUST be HSL.
   }
 }
 
-/* Advanced Animations */
+/* Ultra Advanced Animations */
 @layer utilities {
   .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 8s ease-in-out infinite;
   }
 
   .animate-glow {
-    animation: glow 4s ease-in-out infinite alternate;
+    animation: glow 6s ease-in-out infinite alternate;
   }
 
   .animate-gradient {
-    animation: gradient 8s ease infinite;
+    animation: gradient 12s ease infinite;
     background-size: 400% 400%;
   }
 
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 4s ease-in-out infinite;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounceGentle 2s ease-in-out infinite;
+  }
+
+  .animate-rotate-slow {
+    animation: rotateSlow 20s linear infinite;
+  }
+
+  .animate-scale-breath {
+    animation: scaleBreath 5s ease-in-out infinite;
+  }
+
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-15px) rotate(1deg); }
+    50% { transform: translateY(-25px) rotate(0deg); }
+    75% { transform: translateY(-10px) rotate(-1deg); }
   }
 
   @keyframes glow {
-    from { box-shadow: var(--shadow-mangaba); }
-    to { box-shadow: var(--shadow-glow); }
+    from { 
+      box-shadow: var(--shadow-mangaba); 
+      filter: brightness(1);
+    }
+    to { 
+      box-shadow: var(--shadow-neon); 
+      filter: brightness(1.1);
+    }
   }
 
   @keyframes gradient {
     0% { background-position: 0% 50%; }
+    25% { background-position: 100% 75%; }
     50% { background-position: 100% 50%; }
+    75% { background-position: 0% 25%; }
     100% { background-position: 0% 50%; }
   }
 
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 1; filter: blur(0px); }
+    50% { opacity: 0.8; filter: blur(1px); }
+  }
+
+  @keyframes bounceGentle {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.02); }
+  }
+
+  @keyframes rotateSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes scaleBreath {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  /* Advanced Utility Classes */
   .text-gradient {
     background: var(--gradient-mangaba-hero);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+
+  .text-gradient-shimmer {
+    background: var(--gradient-shimmer);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: gradient 4s ease infinite;
   }
 
   .border-gradient {
     border: 2px solid transparent;
     background: linear-gradient(white, white) padding-box,
                 var(--gradient-mangaba-primary) border-box;
+  }
+
+  .border-gradient-animated {
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                var(--gradient-mangaba-hero) border-box;
+    background-size: 200% 200%;
+    animation: gradient 6s ease infinite;
+  }
+
+  .glass-effect {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .node-pulse {
+    position: relative;
+  }
+
+  .node-pulse::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--gradient-mangaba-primary);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .node-pulse:hover::before {
+    opacity: 1;
+  }
+
+  /* Particle Effects */
+  .particle-field {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--gradient-mangaba-primary);
+    border-radius: 50%;
+    animation: particleFloat 15s linear infinite;
+  }
+
+  @keyframes particleFloat {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10vh) rotate(360deg);
+      opacity: 0;
+    }
   }
 }

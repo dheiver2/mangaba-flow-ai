@@ -1,5 +1,5 @@
-import { supabase } from '@/lib/supabase';
 import { FlowNode, FlowConnection } from '@/components/FlowBuilder';
+import { GeminiService, ToolService } from './apiServices';
 
 export interface FlowExecution {
   id: string;
@@ -134,19 +134,12 @@ export class FlowExecutor {
 
   private async executeLLMNode(node: FlowNode, input: any): Promise<any> {
     try {
-      const { data, error } = await supabase.functions.invoke('process-with-gemini', {
-        body: {
-          input: typeof input === 'string' ? input : JSON.stringify(input),
-          config: node.data.config || {},
-          prompt: node.data.config?.prompt || 'Process the following input:'
-        }
-      });
+      const response = await GeminiService.processText(
+        typeof input === 'string' ? input : JSON.stringify(input),
+        node.data.config || {}
+      );
 
-      if (error) {
-        throw new Error(`Gemini API error: ${error.message}`);
-      }
-
-      return data?.response || 'No response from Gemini';
+      return response;
     } catch (error) {
       console.error('LLM Node Error:', error);
       throw new Error(`Failed to process with Gemini: ${error instanceof Error ? error.message : 'Unknown error'}`);
@@ -171,24 +164,26 @@ export class FlowExecutor {
     const toolType = node.data.config?.toolType || 'web-search';
     
     try {
-      const { data, error } = await supabase.functions.invoke('execute-tool', {
-        body: {
-          toolType,
-          input: typeof input === 'string' ? input : JSON.stringify(input),
-          config: node.data.config || {}
-        }
-      });
+      let result: any;
 
-      if (error) {
-        throw new Error(`Tool execution error: ${error.message}`);
+      switch (toolType) {
+        case 'web-search':
+          result = await ToolService.executeWebSearch(typeof input === 'string' ? input : JSON.stringify(input));
+          break;
+        case 'database':
+          result = await ToolService.executeDatabaseQuery(typeof input === 'string' ? input : JSON.stringify(input));
+          break;
+        case 'api':
+          result = await ToolService.executeApiCall(typeof input === 'string' ? input : JSON.stringify(input), node.data.config);
+          break;
+        default:
+          throw new Error(`Unknown tool type: ${toolType}`);
       }
 
-      return data?.result || 'No result from tool';
+      return result;
     } catch (error) {
       console.error('Tool Node Error:', error);
-      // Return mock data for now
-      await this.delay(1000);
-      return `Tool result for "${input}" using ${toolType}`;
+      throw new Error(`Tool execution failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   }
 
