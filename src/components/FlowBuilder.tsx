@@ -3,6 +3,8 @@ import { FlowSidebar } from './flow/FlowSidebar';
 import { FlowCanvas } from './flow/FlowCanvas';
 import { FlowHeader } from './flow/FlowHeader';
 import { PropertiesPanel } from './flow/PropertiesPanel';
+import { FlowExecutor, FlowExecutionStep } from '@/lib/flowExecutor';
+import { useToast } from '@/hooks/use-toast';
 
 export interface FlowNode {
   id: string;
@@ -28,6 +30,9 @@ export const FlowBuilder = () => {
   const [connections, setConnections] = useState<FlowConnection[]>([]);
   const [selectedNode, setSelectedNode] = useState<FlowNode | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [isExecuting, setIsExecuting] = useState(false);
+  const [executionSteps, setExecutionSteps] = useState<FlowExecutionStep[]>([]);
+  const { toast } = useToast();
 
   const addNode = (type: FlowNode['type'], position?: { x: number; y: number }) => {
     const defaultPosition = position || { 
@@ -65,11 +70,43 @@ export const FlowBuilder = () => {
     }
   };
 
+  const runFlow = async (input: string = "Hello, world!") => {
+    if (nodes.length === 0) {
+      toast({
+        title: "No nodes to execute",
+        description: "Add some nodes to your flow first",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsExecuting(true);
+    try {
+      const executor = new FlowExecutor(nodes, connections, input, setExecutionSteps);
+      const result = await executor.execute();
+      
+      toast({
+        title: "Flow executed successfully",
+        description: `Result: ${JSON.stringify(result.output)}`,
+      });
+    } catch (error) {
+      toast({
+        title: "Flow execution failed", 
+        description: error instanceof Error ? error.message : "Unknown error",
+        variant: "destructive"
+      });
+    } finally {
+      setIsExecuting(false);
+    }
+  };
+
   return (
     <div className="h-screen flex flex-col bg-gradient-canvas">
       <FlowHeader 
         onSidebarToggle={() => setSidebarOpen(!sidebarOpen)}
         sidebarOpen={sidebarOpen}
+        onRunFlow={runFlow}
+        isExecuting={isExecuting}
       />
       
       <div className="flex-1 flex overflow-hidden">

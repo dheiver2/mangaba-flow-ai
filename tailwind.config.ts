@@ -62,27 +62,56 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Mangaba specific colors
+				// Mangaba Advanced Colors
 				mangaba: {
 					gold: 'hsl(var(--mangaba-gold))',
+					'gold-dark': 'hsl(var(--mangaba-gold-dark))',
+					'gold-light': 'hsl(var(--mangaba-gold-light))',
 					orange: 'hsl(var(--mangaba-orange))',
+					'orange-dark': 'hsl(var(--mangaba-orange-dark))',
+					'orange-light': 'hsl(var(--mangaba-orange-light))',
 					green: 'hsl(var(--mangaba-green))',
+					'green-dark': 'hsl(var(--mangaba-green-dark))',
+					'green-light': 'hsl(var(--mangaba-green-light))',
 					yellow: 'hsl(var(--mangaba-yellow))',
-					earth: 'hsl(var(--mangaba-earth))'
+					'yellow-dark': 'hsl(var(--mangaba-yellow-dark))',
+					'yellow-light': 'hsl(var(--mangaba-yellow-light))',
+					earth: 'hsl(var(--mangaba-earth))',
+					'earth-dark': 'hsl(var(--mangaba-earth-dark))',
+					'earth-light': 'hsl(var(--mangaba-earth-light))',
+					cream: 'hsl(var(--mangaba-cream))',
+					sand: 'hsl(var(--mangaba-sand))',
+					bark: 'hsl(var(--mangaba-bark))'
 				}
 			},
 			backgroundImage: {
-				'gradient-mangaba': 'var(--gradient-mangaba)',
+				'gradient-mangaba-hero': 'var(--gradient-mangaba-hero)',
+				'gradient-mangaba-primary': 'var(--gradient-mangaba-primary)',
+				'gradient-mangaba-secondary': 'var(--gradient-mangaba-secondary)',
 				'gradient-tropical': 'var(--gradient-tropical)',
-				'gradient-canvas': 'var(--gradient-canvas)'
+				'gradient-sunset': 'var(--gradient-sunset)',
+				'gradient-canvas': 'var(--gradient-canvas)',
+				'gradient-feature': 'var(--gradient-feature)',
+				'gradient-card': 'var(--gradient-card)'
 			},
 			boxShadow: {
 				'mangaba': 'var(--shadow-mangaba)',
+				'mangaba-lg': 'var(--shadow-mangaba-lg)',
 				'node': 'var(--shadow-node)',
-				'float': 'var(--shadow-float)'
+				'float': 'var(--shadow-float)',
+				'glow': 'var(--shadow-glow)',
+				'feature': 'var(--shadow-feature)'
 			},
 			transitionTimingFunction: {
-				'bounce-gentle': 'var(--bounce-gentle)'
+				'bounce-gentle': 'var(--bounce-gentle)',
+				'ease-flow': 'var(--ease-flow)'
+			},
+			animation: {
+				'accordion-down': 'accordion-down 0.2s ease-out',
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'glow': 'glow 4s ease-in-out infinite alternate',
+				'gradient': 'gradient 8s ease infinite'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

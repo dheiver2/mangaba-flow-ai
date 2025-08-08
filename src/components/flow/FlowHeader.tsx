@@ -4,9 +4,11 @@ import { Menu, Play, Save, Settings, Zap } from 'lucide-react';
 interface FlowHeaderProps {
   onSidebarToggle: () => void;
   sidebarOpen: boolean;
+  onRunFlow?: () => void;
+  isExecuting?: boolean;
 }
 
-export const FlowHeader = ({ onSidebarToggle, sidebarOpen }: FlowHeaderProps) => {
+export const FlowHeader = ({ onSidebarToggle, sidebarOpen, onRunFlow, isExecuting }: FlowHeaderProps) => {
   return (
     <header className="h-16 bg-gradient-mangaba border-b border-border flex items-center justify-between px-6 shadow-mangaba">
       <div className="flex items-center space-x-4">
@@ -48,9 +50,11 @@ export const FlowHeader = ({ onSidebarToggle, sidebarOpen }: FlowHeaderProps) =>
           variant="secondary"
           size="sm"
           className="bg-white/20 text-primary-foreground hover:bg-white/30 border-white/30"
+          onClick={onRunFlow}
+          disabled={isExecuting}
         >
           <Play className="h-4 w-4 mr-2" />
-          Run Flow
+          {isExecuting ? 'Running...' : 'Run Flow'}
         </Button>
         
         <Button
