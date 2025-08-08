@@ -4,6 +4,7 @@ import { ReactFlowCanvas } from './flow/ReactFlowCanvas';
 import { FlowHeader } from './flow/FlowHeader';
 import { PropertiesPanel } from './flow/PropertiesPanel';
 import { FlowExecutor, FlowExecutionStep } from '@/lib/flowExecutor';
+import { ApiKeyManager } from '@/lib/apiServices';
 import { useToast } from '@/hooks/use-toast';
 
 export interface FlowNode {
@@ -80,16 +81,44 @@ export const FlowBuilder = () => {
       return;
     }
 
+    // Check if API key is configured for AI nodes
+    const hasAINodes = nodes.some(node => 
+      ['llm', 'sentiment', 'entity-extraction', 'keyword-extraction', 'text-classification',
+       'blog-writer', 'email-composer', 'social-media', 'summary-generator', 'translator',
+       'grammar-checker', 'style-enhancer', 'code-generator', 'code-reviewer', 'bug-finder',
+       'documentation', 'chatbot', 'customer-support', 'sales-assistant'].includes(node.type)
+    );
+
+    if (hasAINodes && !ApiKeyManager.hasGeminiKey()) {
+      toast({
+        title: "API Key Required",
+        description: "Please configure your Gemini API key in settings to run AI components",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setIsExecuting(true);
+    setExecutionSteps([]);
+    
     try {
       const executor = new FlowExecutor(nodes, connections, input, setExecutionSteps);
       const result = await executor.execute();
       
-      toast({
-        title: "Flow executed successfully",
-        description: `Result: ${JSON.stringify(result.output)}`,
-      });
+      if (result.status === 'error') {
+        toast({
+          title: "Flow execution failed", 
+          description: result.error || "Unknown error occurred",
+          variant: "destructive"
+        });
+      } else {
+        toast({
+          title: "Flow executed successfully",
+          description: `Result: ${typeof result.output === 'string' ? result.output.substring(0, 100) + '...' : JSON.stringify(result.output)}`,
+        });
+      }
     } catch (error) {
+      console.error('Flow execution error:', error);
       toast({
         title: "Flow execution failed", 
         description: error instanceof Error ? error.message : "Unknown error",
@@ -106,13 +135,28 @@ export const FlowBuilder = () => {
     setConnections([]);
     setSelectedNode(null);
     
-    // Add template nodes and connections
+    // Add template nodes and connections with proper IDs
     setTimeout(() => {
-      setNodes(template.nodes.map((node: any) => ({
+      const timestamp = Date.now();
+      const templateNodes = template.nodes.map((node: any, index: number) => ({
         ...node,
-        id: `${node.type}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
-      })));
-      setConnections(template.connections);
+        id: `${node.type}-${timestamp}-${index}`
+      }));
+      
+      const templateConnections = template.connections.map((conn: any, index: number) => {
+        const sourceNode = templateNodes.find((n: any) => n.data.label === template.nodes.find((tn: any) => tn.id === conn.source)?.data?.label);
+        const targetNode = templateNodes.find((n: any) => n.data.label === template.nodes.find((tn: any) => tn.id === conn.target)?.data?.label);
+        
+        return {
+          ...conn,
+          id: `conn-${timestamp}-${index}`,
+          source: sourceNode?.id || conn.source,
+          target: targetNode?.id || conn.target
+        };
+      });
+      
+      setNodes(templateNodes);
+      setConnections(templateConnections);
     }, 100);
   };
 

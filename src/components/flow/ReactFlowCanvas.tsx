@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { 
   ReactFlow,
   Background,
@@ -117,14 +117,14 @@ export const ReactFlowCanvas = ({
   const [rfEdges, setRfEdges, onEdgesChange] = useEdgesState(reactFlowEdges);
 
   // Update ReactFlow nodes when our nodes change
-  useState(() => {
+  useEffect(() => {
     setRfNodes(reactFlowNodes);
-  });
+  }, [reactFlowNodes, setRfNodes]);
 
   // Update ReactFlow edges when our connections change  
-  useState(() => {
+  useEffect(() => {
     setRfEdges(reactFlowEdges);
-  });
+  }, [reactFlowEdges, setRfEdges]);
 
   const onConnect = useCallback((params: Connection) => {
     const newConnection: FlowConnection = {

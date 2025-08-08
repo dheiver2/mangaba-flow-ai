@@ -79,44 +79,67 @@ export class FlowExecutor {
   }
 
   private async executeNode(node: FlowNode, input: any): Promise<any> {
-    const step = this.steps.get(node.id);
-    if (!step) return null;
+    console.log(`Executing node: ${node.id} (${node.type})`);
+    
+    // Update step status
+    const step = this.steps.get(node.id)!;
+    step.status = 'running';
+    step.input = input;
+    this.updateStatus();
 
     try {
-      step.status = 'running';
-      step.input = input;
-      this.updateStatus();
-
-      let output: any;
+      let result: any;
 
       switch (node.type) {
         case 'input':
-          output = await this.executeInputNode(node, input);
+          result = await this.executeInputNode(node, input);
           break;
         case 'llm':
-          output = await this.executeLLMNode(node, input);
+        case 'sentiment':
+        case 'entity-extraction':
+        case 'keyword-extraction':
+        case 'text-classification':
+        case 'blog-writer':
+        case 'email-composer':
+        case 'social-media':
+        case 'summary-generator':
+        case 'translator':
+        case 'grammar-checker':
+        case 'style-enhancer':
+        case 'code-generator':
+        case 'code-reviewer':
+        case 'bug-finder':
+        case 'documentation':
+        case 'chatbot':
+        case 'customer-support':
+        case 'sales-assistant':
+          result = await this.executeLLMNode(node, input);
           break;
         case 'output':
-          output = await this.executeOutputNode(node, input);
+          result = await this.executeOutputNode(node, input);
           break;
         case 'tool':
-          output = await this.executeToolNode(node, input);
+        case 'web-search':
+        case 'database':
+        case 'api-call':
+        case 'calculator':
+          result = await this.executeToolNode(node, input);
           break;
         default:
           throw new Error(`Unknown node type: ${node.type}`);
       }
 
       step.status = 'completed';
-      step.output = output;
+      step.output = result;
       this.updateStatus();
 
       // Execute connected nodes
       const connectedNodes = this.getConnectedNodes(node.id);
       for (const connectedNode of connectedNodes) {
-        await this.executeNode(connectedNode, output);
+        await this.executeNode(connectedNode, result);
       }
 
-      return output;
+      return result;
 
     } catch (error) {
       step.status = 'error';
@@ -133,17 +156,75 @@ export class FlowExecutor {
   }
 
   private async executeLLMNode(node: FlowNode, input: any): Promise<any> {
-    try {
-      const response = await GeminiService.processText(
-        typeof input === 'string' ? input : JSON.stringify(input),
-        node.data.config || {}
-      );
-
-      return response;
-    } catch (error) {
-      console.error('LLM Node Error:', error);
-      throw new Error(`Failed to process with Gemini: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    // Configure prompt based on node type
+    let prompt = 'You are a helpful AI assistant. Process the following input and provide a useful response.';
+    
+    switch (node.type) {
+      case 'sentiment':
+        prompt = 'Analyze the sentiment of the following text. Return only the sentiment (positive, negative, or neutral) with a confidence score.';
+        break;
+      case 'entity-extraction':
+        prompt = 'Extract all named entities (people, places, organizations, etc.) from the following text. Return them in a structured format.';
+        break;
+      case 'keyword-extraction':
+        prompt = 'Extract the most important keywords and phrases from the following text. Return them ranked by importance.';
+        break;
+      case 'text-classification':
+        prompt = 'Classify the following text into appropriate categories. Provide the category and confidence level.';
+        break;
+      case 'blog-writer':
+        prompt = 'Write a comprehensive blog post about the following topic. Include an engaging title, introduction, main content, and conclusion.';
+        break;
+      case 'email-composer':
+        prompt = 'Compose a professional email about the following topic. Include appropriate subject line, greeting, body, and closing.';
+        break;
+      case 'social-media':
+        prompt = 'Create engaging social media posts about the following topic. Include hashtags and call-to-action.';
+        break;
+      case 'summary-generator':
+        prompt = 'Create a concise summary of the following text. Capture the key points and main ideas.';
+        break;
+      case 'translator':
+        prompt = 'Translate the following text to the target language. Maintain the original meaning and tone.';
+        break;
+      case 'grammar-checker':
+        prompt = 'Check and correct any grammar, spelling, or punctuation errors in the following text.';
+        break;
+      case 'style-enhancer':
+        prompt = 'Improve the writing style and tone of the following text. Make it more engaging and professional.';
+        break;
+      case 'code-generator':
+        prompt = 'Generate clean, well-documented code based on the following requirements. Include comments and best practices.';
+        break;
+      case 'code-reviewer':
+        prompt = 'Review the following code and provide suggestions for improvement. Focus on best practices, performance, and readability.';
+        break;
+      case 'bug-finder':
+        prompt = 'Analyze the following code for potential bugs, errors, or security issues. Provide detailed explanations.';
+        break;
+      case 'documentation':
+        prompt = 'Generate comprehensive documentation for the following code or feature. Include usage examples.';
+        break;
+      case 'chatbot':
+        prompt = 'You are a helpful chatbot. Respond to the following user message in a friendly and informative manner.';
+        break;
+      case 'customer-support':
+        prompt = 'You are a customer support agent. Provide helpful and professional assistance for the following customer inquiry.';
+        break;
+      case 'sales-assistant':
+        prompt = 'You are a sales assistant. Help the customer with their inquiry and guide them towards a positive outcome.';
+        break;
     }
+
+    const config = {
+      prompt,
+      temperature: node.data.config?.temperature || 0.7,
+      maxTokens: node.data.config?.maxTokens || 1024,
+      ...node.data.config
+    };
+
+    const result = await GeminiService.processText(typeof input === 'string' ? input : JSON.stringify(input), config);
+    return result;
   }
 
   private async executeOutputNode(node: FlowNode, input: any): Promise<any> {
@@ -161,20 +242,58 @@ export class FlowExecutor {
   }
 
   private async executeToolNode(node: FlowNode, input: any): Promise<any> {
-    const toolType = node.data.config?.toolType || 'web-search';
+    let toolType = 'web-search';
+    
+    // Determine tool type from node type or config
+    switch (node.type) {
+      case 'web-search':
+        toolType = 'web-search';
+        break;
+      case 'database':
+        toolType = 'database';
+        break;
+      case 'api-call':
+        toolType = 'api';
+        break;
+      case 'calculator':
+        toolType = 'calculator';
+        break;
+      case 'tool':
+        toolType = node.data.config?.toolType || 'web-search';
+        break;
+    }
     
     try {
       let result: any;
+      const inputString = typeof input === 'string' ? input : JSON.stringify(input);
 
       switch (toolType) {
         case 'web-search':
-          result = await ToolService.executeWebSearch(typeof input === 'string' ? input : JSON.stringify(input));
+          result = await ToolService.executeWebSearch(inputString);
           break;
         case 'database':
-          result = await ToolService.executeDatabaseQuery(typeof input === 'string' ? input : JSON.stringify(input));
+          result = await ToolService.executeDatabaseQuery(inputString);
           break;
         case 'api':
-          result = await ToolService.executeApiCall(typeof input === 'string' ? input : JSON.stringify(input), node.data.config);
+          result = await ToolService.executeApiCall(inputString, node.data.config);
+          break;
+        case 'calculator':
+          // Simple calculator implementation
+          try {
+            const expression = inputString.replace(/[^0-9+\-*/().]/g, '');
+            result = {
+              expression: inputString,
+              calculation: expression,
+              result: eval(expression),
+              timestamp: new Date().toISOString()
+            };
+          } catch {
+            result = {
+              expression: inputString,
+              error: 'Invalid mathematical expression',
+              timestamp: new Date().toISOString()
+            };
+          }
           break;
         default:
           throw new Error(`Unknown tool type: ${toolType}`);

@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
-import { Settings, Key, Eye, EyeOff, Sparkles } from 'lucide-react';
+import { Card } from '@/components/ui/card';
+import { Settings, Key, Eye, EyeOff, Sparkles, CheckCircle, AlertCircle } from 'lucide-react';
 import { ApiKeyManager } from '@/lib/apiServices';
 import { useToast } from '@/hooks/use-toast';
 
@@ -12,11 +13,21 @@ export const ApiKeyModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showKey, setShowKey] = useState(false);
   const [geminiKey, setGeminiKey] = useState('');
+  const [hasValidKey, setHasValidKey] = useState(false);
   const { toast } = useToast();
 
+  useEffect(() => {
+    const storedKey = ApiKeyManager.getGeminiKey();
+    if (storedKey) {
+      setGeminiKey(storedKey);
+      setHasValidKey(true);
+    }
+  }, [isOpen]);
+
   const handleSave = () => {
-    if (geminiKey.trim()) {
+    if (geminiKey.trim() && geminiKey.length > 20) { // Basic validation
       ApiKeyManager.setApiKey('geminiApiKey', geminiKey.trim());
+      setHasValidKey(true);
       toast({
         title: "API Key saved successfully",
         description: "Your Gemini API key has been securely stored locally.",
@@ -25,36 +36,37 @@ export const ApiKeyModal = () => {
     } else {
       toast({
         title: "Invalid API Key",
-        description: "Please enter a valid Gemini API key.",
+        description: "Please enter a valid Gemini API key (minimum 20 characters).",
         variant: "destructive"
       });
     }
   };
 
-  const handleOpen = () => {
-    const stored = ApiKeyManager.getGeminiKey();
-    if (stored) {
-      setGeminiKey(stored);
-    }
-    setIsOpen(true);
+  const handleClear = () => {
+    ApiKeyManager.clearApiKeys();
+    setGeminiKey('');
+    setHasValidKey(false);
+    toast({
+      title: "API Keys cleared",
+      description: "All stored API keys have been removed.",
+    });
   };
-
-  const hasKey = ApiKeyManager.hasGeminiKey();
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button
-          variant="ghost"
+        <Button 
+          variant="ghost" 
           size="sm"
-          className="text-primary-foreground hover:bg-white/20 relative"
-          onClick={handleOpen}
+          className={`text-white hover:bg-white/20 transition-all duration-300 ${hasValidKey ? 'border border-green-400/30' : 'border border-orange-400/30'}`}
         >
+          {hasValidKey ? (
+            <CheckCircle className="h-4 w-4 mr-2 text-green-400" />
+          ) : (
+            <AlertCircle className="h-4 w-4 mr-2 text-orange-400" />
+          )}
           <Settings className="h-4 w-4 mr-2" />
           API Settings
-          {hasKey && (
-            <div className="absolute -top-1 -right-1 w-3 h-3 bg-mangaba-green rounded-full border border-white"></div>
-          )}
         </Button>
       </DialogTrigger>
       
@@ -81,10 +93,10 @@ export const ApiKeyModal = () => {
                 Google Gemini API Key
               </Label>
               <Badge 
-                variant={hasKey ? "default" : "secondary"}
-                className={hasKey ? "bg-mangaba-green text-white" : ""}
+                variant={hasValidKey ? "default" : "secondary"}
+                className={hasValidKey ? "bg-mangaba-green text-white" : ""}
               >
-                {hasKey ? "Configured" : "Required"}
+                {hasValidKey ? "Configured" : "Required"}
               </Badge>
             </div>
             
@@ -125,8 +137,16 @@ export const ApiKeyModal = () => {
             Cancel
           </Button>
           <Button
+            variant="outline"
+            onClick={handleClear}
+            className="border-red-400/30 text-red-600 hover:bg-red-50"
+          >
+            Clear Keys
+          </Button>
+          <Button
             onClick={handleSave}
-            className="bg-gradient-mangaba-primary hover:shadow-mangaba transition-all duration-300"
+            disabled={!geminiKey.trim()}
+            className="bg-gradient-mangaba-primary hover:shadow-mangaba transition-all duration-300 disabled:opacity-50"
           >
             Save Configuration
           </Button>
