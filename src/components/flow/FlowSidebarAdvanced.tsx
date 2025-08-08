@@ -22,7 +22,17 @@ import {
   Shield,
   Workflow,
   Sparkles,
-  Clock
+  Clock,
+  ArrowRight,
+  Star,
+  TrendingUp,
+  Headphones,
+  PenTool,
+  Users,
+  ShoppingCart,
+  Building,
+  GraduationCap,
+  Stethoscope
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -50,7 +60,7 @@ interface Template {
   description: string;
   icon: any;
   color: string;
-  difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
+  difficulty: 'Iniciante' | 'Intermediário' | 'Avançado';
   estimatedTime: string;
   tags: string[];
   nodes: any[];
@@ -60,297 +70,297 @@ interface Template {
 const advancedComponents: ComponentCategory[] = [
   {
     id: 'core',
-    name: 'Core Components',
+    name: 'Componentes Principais',
     icon: Zap,
     components: [
       {
         type: 'input',
-        label: 'Text Input',
-        description: 'Capture user text input',
+        label: 'Entrada de Texto',
+        description: 'Captura entrada de texto do usuário',
         icon: MessageSquare,
-        category: 'Input',
-        color: 'bg-mangaba-green',
-        tags: ['basic', 'input', 'text']
+        category: 'Entrada',
+        color: 'bg-primary',
+        tags: ['básico', 'entrada', 'texto']
       },
       {
         type: 'llm',
         label: 'Gemini LLM',
-        description: 'Google Gemini language model',
+        description: 'Modelo de linguagem Google Gemini',
         icon: Brain,
-        category: 'AI',
-        color: 'bg-mangaba-gold',
-        tags: ['ai', 'gemini', 'llm']
+        category: 'IA',
+        color: 'bg-secondary',
+        tags: ['ia', 'gemini', 'llm']
       },
       {
         type: 'output',
-        label: 'Text Output',
-        description: 'Display or return results',
+        label: 'Saída de Texto',
+        description: 'Exibe ou retorna resultados',
         icon: FileText,
-        category: 'Output',
-        color: 'bg-mangaba-orange',
-        tags: ['basic', 'output', 'display']
+        category: 'Saída',
+        color: 'bg-accent',
+        tags: ['básico', 'saída', 'exibição']
       }
     ]
   },
   {
     id: 'analysis',
-    name: 'Text Analysis',
+    name: 'Análise de Texto',
     icon: BarChart3,
     components: [
       {
         type: 'sentiment',
-        label: 'Sentiment Analysis',
-        description: 'Analyze emotional tone of text',
+        label: 'Análise de Sentimento',
+        description: 'Analisa o tom emocional do texto',
         icon: BarChart3,
-        category: 'Analysis',
-        color: 'bg-mangaba-yellow',
+        category: 'Análise',
+        color: 'bg-primary',
         config: { analysisType: 'sentiment' },
-        tags: ['analysis', 'sentiment', 'emotion']
+        tags: ['análise', 'sentimento', 'emoção']
       },
       {
         type: 'entity-extraction',
-        label: 'Entity Extraction',
-        description: 'Extract names, places, organizations',
+        label: 'Extração de Entidades',
+        description: 'Extrai nomes, lugares, organizações',
         icon: Search,
-        category: 'Analysis',
-        color: 'bg-mangaba-lime',
+        category: 'Análise',
+        color: 'bg-secondary',
         config: { analysisType: 'entities' },
-        tags: ['analysis', 'entities', 'extraction']
+        tags: ['análise', 'entidades', 'extração']
       },
       {
         type: 'keyword-extraction',
-        label: 'Keyword Extraction',
-        description: 'Extract important keywords and phrases',
+        label: 'Extração de Palavras-chave',
+        description: 'Extrai palavras-chave importantes',
         icon: Zap,
-        category: 'Analysis',
-        color: 'bg-mangaba-amber',
+        category: 'Análise',
+        color: 'bg-accent',
         config: { analysisType: 'keywords' },
-        tags: ['analysis', 'keywords', 'seo']
+        tags: ['análise', 'palavras-chave', 'seo']
       },
       {
         type: 'text-classification',
-        label: 'Text Classification',
-        description: 'Classify text into categories',
+        label: 'Classificação de Texto',
+        description: 'Classifica texto em categorias',
         icon: FileText,
-        category: 'Analysis',
-        color: 'bg-mangaba-coral',
+        category: 'Análise',
+        color: 'bg-primary',
         config: { analysisType: 'classification' },
-        tags: ['analysis', 'classification', 'category']
+        tags: ['análise', 'classificação', 'categoria']
       }
     ]
   },
   {
     id: 'generation',
-    name: 'Content Generation',
+    name: 'Geração de Conteúdo',
     icon: Palette,
     components: [
       {
         type: 'blog-writer',
-        label: 'Blog Writer',
-        description: 'Generate engaging blog posts',
+        label: 'Escritor de Blog',
+        description: 'Gera posts de blog envolventes',
         icon: FileText,
-        category: 'Generation',
-        color: 'bg-mangaba-green',
+        category: 'Geração',
+        color: 'bg-secondary',
         config: { contentType: 'blog' },
-        tags: ['content', 'blog', 'writing']
+        tags: ['conteúdo', 'blog', 'escrita']
       },
       {
         type: 'email-composer',
-        label: 'Email Composer',
-        description: 'Create professional emails',
+        label: 'Compositor de Email',
+        description: 'Cria emails profissionais',
         icon: Mail,
-        category: 'Generation',
-        color: 'bg-mangaba-orange',
+        category: 'Geração',
+        color: 'bg-accent',
         config: { contentType: 'email' },
-        tags: ['email', 'professional', 'communication']
+        tags: ['email', 'profissional', 'comunicação']
       },
       {
         type: 'social-media',
-        label: 'Social Media Post',
-        description: 'Generate engaging social content',
+        label: 'Post de Mídia Social',
+        description: 'Gera conteúdo envolvente para redes sociais',
         icon: MessageSquare,
-        category: 'Generation',
-        color: 'bg-mangaba-yellow',
+        category: 'Geração',
+        color: 'bg-primary',
         config: { contentType: 'social' },
-        tags: ['social', 'media', 'engagement']
+        tags: ['social', 'mídia', 'engajamento']
       },
       {
         type: 'summary-generator',
-        label: 'Text Summarizer',
-        description: 'Create concise summaries',
+        label: 'Resumidor de Texto',
+        description: 'Cria resumos concisos',
         icon: FileText,
-        category: 'Generation',
-        color: 'bg-mangaba-earth',
+        category: 'Geração',
+        color: 'bg-secondary',
         config: { contentType: 'summary' },
-        tags: ['summary', 'condensed', 'brief']
+        tags: ['resumo', 'condensado', 'breve']
       }
     ]
   },
   {
     id: 'language',
-    name: 'Language Processing',
+    name: 'Processamento de Linguagem',
     icon: Languages,
     components: [
       {
         type: 'translator',
-        label: 'Language Translator',
-        description: 'Translate between languages',
+        label: 'Tradutor de Idiomas',
+        description: 'Traduz entre idiomas',
         icon: Languages,
-        category: 'Language',
-        color: 'bg-mangaba-green',
+        category: 'Linguagem',
+        color: 'bg-accent',
         config: { serviceType: 'translation' },
-        tags: ['translation', 'multilingual', 'language']
+        tags: ['tradução', 'multilíngue', 'idioma']
       },
       {
         type: 'grammar-checker',
-        label: 'Grammar Checker',
-        description: 'Check and fix grammar',
+        label: 'Corretor Gramatical',
+        description: 'Verifica e corrige gramática',
         icon: Shield,
-        category: 'Language',
-        color: 'bg-mangaba-orange',
+        category: 'Linguagem',
+        color: 'bg-primary',
         config: { serviceType: 'grammar' },
-        tags: ['grammar', 'correction', 'writing']
+        tags: ['gramática', 'correção', 'escrita']
       },
       {
         type: 'style-enhancer',
-        label: 'Style Enhancer',
-        description: 'Improve writing style and tone',
+        label: 'Melhorador de Estilo',
+        description: 'Melhora estilo e tom da escrita',
         icon: Sparkles,
-        category: 'Language',
-        color: 'bg-mangaba-yellow',
+        category: 'Linguagem',
+        color: 'bg-secondary',
         config: { serviceType: 'style' },
-        tags: ['style', 'tone', 'enhancement']
+        tags: ['estilo', 'tom', 'melhoria']
       }
     ]
   },
   {
     id: 'code',
-    name: 'Code & Development',
+    name: 'Código e Desenvolvimento',
     icon: Code,
     components: [
       {
         type: 'code-generator',
-        label: 'Code Generator',
-        description: 'Generate code in multiple languages',
+        label: 'Gerador de Código',
+        description: 'Gera código em múltiplas linguagens',
         icon: Code,
-        category: 'Development',
-        color: 'bg-mangaba-earth',
+        category: 'Desenvolvimento',
+        color: 'bg-accent',
         config: { codeType: 'generation' },
-        tags: ['code', 'programming', 'generation']
+        tags: ['código', 'programação', 'geração']
       },
       {
         type: 'code-reviewer',
-        label: 'Code Reviewer',
-        description: 'Review and suggest improvements',
+        label: 'Revisor de Código',
+        description: 'Revisa e sugere melhorias',
         icon: Search,
-        category: 'Development',
-        color: 'bg-mangaba-green',
+        category: 'Desenvolvimento',
+        color: 'bg-primary',
         config: { codeType: 'review' },
-        tags: ['code', 'review', 'quality']
+        tags: ['código', 'revisão', 'qualidade']
       },
       {
         type: 'bug-finder',
-        label: 'Bug Detector',
-        description: 'Find and fix bugs in code',
+        label: 'Detector de Bugs',
+        description: 'Encontra e corrige bugs no código',
         icon: Shield,
-        category: 'Development',
-        color: 'bg-mangaba-orange',
+        category: 'Desenvolvimento',
+        color: 'bg-secondary',
         config: { codeType: 'debug' },
-        tags: ['debugging', 'bugs', 'fixes']
+        tags: ['depuração', 'bugs', 'correções']
       },
       {
         type: 'documentation',
-        label: 'Code Documenter',
-        description: 'Generate code documentation',
+        label: 'Documentador de Código',
+        description: 'Gera documentação de código',
         icon: FileText,
-        category: 'Development',
-        color: 'bg-mangaba-yellow',
+        category: 'Desenvolvimento',
+        color: 'bg-accent',
         config: { codeType: 'documentation' },
-        tags: ['documentation', 'comments', 'explanation']
+        tags: ['documentação', 'comentários', 'explicação']
       }
     ]
   },
   {
     id: 'conversation',
-    name: 'Conversational AI',
+    name: 'IA Conversacional',
     icon: Bot,
     components: [
       {
         type: 'chatbot',
         label: 'Chatbot',
-        description: 'Interactive conversational agent',
+        description: 'Agente conversacional interativo',
         icon: Bot,
-        category: 'Conversation',
-        color: 'bg-mangaba-green',
+        category: 'Conversa',
+        color: 'bg-primary',
         config: { botType: 'general' },
-        tags: ['chatbot', 'conversation', 'interactive']
+        tags: ['chatbot', 'conversa', 'interativo']
       },
       {
         type: 'customer-support',
-        label: 'Customer Support Bot',
-        description: 'Specialized customer service agent',
+        label: 'Bot de Suporte ao Cliente',
+        description: 'Agente especializado em atendimento',
         icon: MessageSquare,
-        category: 'Conversation',
-        color: 'bg-mangaba-orange',
+        category: 'Conversa',
+        color: 'bg-secondary',
         config: { botType: 'support' },
-        tags: ['support', 'customer', 'service']
+        tags: ['suporte', 'cliente', 'atendimento']
       },
       {
         type: 'sales-assistant',
-        label: 'Sales Assistant',
-        description: 'AI-powered sales representative',
+        label: 'Assistente de Vendas',
+        description: 'Representante de vendas com IA',
         icon: BarChart3,
-        category: 'Conversation',
-        color: 'bg-mangaba-yellow',
+        category: 'Conversa',
+        color: 'bg-accent',
         config: { botType: 'sales' },
-        tags: ['sales', 'assistant', 'conversion']
+        tags: ['vendas', 'assistente', 'conversão']
       }
     ]
   },
   {
     id: 'tools',
-    name: 'External Tools',
+    name: 'Ferramentas Externas',
     icon: Workflow,
     components: [
       {
         type: 'web-search',
-        label: 'Web Search',
-        description: 'Search the internet for information',
+        label: 'Busca na Web',
+        description: 'Busca informações na internet',
         icon: Search,
-        category: 'Tools',
-        color: 'bg-mangaba-yellow',
+        category: 'Ferramentas',
+        color: 'bg-secondary',
         config: { toolType: 'web-search' },
-        tags: ['search', 'web', 'information']
+        tags: ['busca', 'web', 'informação']
       },
       {
         type: 'database',
-        label: 'Database Query',
-        description: 'Connect and query databases',
+        label: 'Consulta de Banco de Dados',
+        description: 'Conecta e consulta bancos de dados',
         icon: Database,
-        category: 'Tools',
-        color: 'bg-mangaba-earth',
+        category: 'Ferramentas',
+        color: 'bg-accent',
         config: { toolType: 'database' },
-        tags: ['database', 'query', 'data']
+        tags: ['banco de dados', 'consulta', 'dados']
       },
       {
         type: 'api-call',
-        label: 'API Integration',
-        description: 'Make HTTP API requests',
+        label: 'Integração de API',
+        description: 'Faz requisições HTTP para APIs',
         icon: Globe,
-        category: 'Tools',
-        color: 'bg-mangaba-green',
+        category: 'Ferramentas',
+        color: 'bg-primary',
         config: { toolType: 'api' },
-        tags: ['api', 'integration', 'http']
+        tags: ['api', 'integração', 'http']
       },
       {
         type: 'calculator',
-        label: 'Calculator',
-        description: 'Perform mathematical calculations',
+        label: 'Calculadora',
+        description: 'Realiza cálculos matemáticos',
         icon: Calculator,
-        category: 'Tools',
-        color: 'bg-mangaba-orange',
+        category: 'Ferramentas',
+        color: 'bg-secondary',
         config: { toolType: 'calculator' },
-        tags: ['math', 'calculation', 'numbers']
+        tags: ['matemática', 'cálculo', 'números']
       }
     ]
   }
@@ -358,274 +368,907 @@ const advancedComponents: ComponentCategory[] = [
 
 const flowTemplates: Template[] = [
   {
-    id: 'customer-support',
-    name: 'Customer Support Chatbot',
-    description: 'Complete customer service workflow with sentiment analysis and automated responses',
-    icon: Bot,
-    color: 'bg-mangaba-green',
-    difficulty: 'Beginner',
+    id: 'assistente-suporte',
+    name: 'Assistente de Suporte ao Cliente',
+    description: 'Sistema completo de atendimento com análise de sentimento e respostas automatizadas',
+    icon: Headphones,
+    color: 'from-primary to-secondary',
+    difficulty: 'Iniciante',
     estimatedTime: '5 min',
-    tags: ['customer service', 'chatbot', 'automation'],
+    tags: ['suporte', 'cliente', 'chatbot'],
     nodes: [
       {
         id: 'input-1',
         type: 'input',
         position: { x: 100, y: 100 },
-        data: { label: 'Customer Message', description: 'Capture customer input' }
+        data: { 
+          label: 'Mensagem do Cliente', 
+          description: 'Captura a mensagem do cliente',
+          config: { placeholder: 'Digite sua dúvida...' }
+        }
       },
       {
         id: 'sentiment-1',
         type: 'sentiment',
-        position: { x: 400, y: 100 },
-        data: { label: 'Analyze Sentiment', description: 'Analyze customer emotion' }
+        position: { x: 400, y: 50 },
+        data: { 
+          label: 'Análise de Sentimento', 
+          description: 'Analisa o humor do cliente',
+          config: { model: 'gemini-pro', language: 'pt-BR' }
+        }
       },
       {
-        id: 'llm-1',
-        type: 'llm',
-        position: { x: 700, y: 100 },
-        data: { label: 'Generate Response', description: 'Create helpful response' }
+        id: 'customer-support-1',
+        type: 'customer-support',
+        position: { x: 400, y: 150 },
+        data: { 
+          label: 'Bot de Suporte', 
+          description: 'Responde às perguntas do cliente',
+          config: { 
+            model: 'gemini-pro',
+            personality: 'atencioso e prestativo',
+            language: 'pt-BR',
+            knowledgeBase: 'suporte-geral'
+          }
+        }
       },
       {
         id: 'output-1',
         type: 'output',
-        position: { x: 1000, y: 100 },
-        data: { label: 'Customer Response', description: 'Send response to customer' }
+        position: { x: 700, y: 100 },
+        data: { 
+          label: 'Resposta Final', 
+          description: 'Entrega a resposta personalizada'
+        }
       }
     ],
     connections: [
       { id: 'e1', source: 'input-1', target: 'sentiment-1' },
-      { id: 'e2', source: 'sentiment-1', target: 'llm-1' },
-      { id: 'e3', source: 'llm-1', target: 'output-1' }
+      { id: 'e2', source: 'input-1', target: 'customer-support-1' },
+      { id: 'e3', source: 'sentiment-1', target: 'customer-support-1' },
+      { id: 'e4', source: 'customer-support-1', target: 'output-1' }
     ]
   },
   {
-    id: 'content-creation',
-    name: 'Content Creation Pipeline',
-    description: 'Generate blog posts, social media content, and marketing copy',
-    icon: Palette,
-    color: 'bg-mangaba-orange',
-    difficulty: 'Intermediate',
+    id: 'gerador-conteudo',
+    name: 'Gerador de Conteúdo Completo',
+    description: 'Pipeline para criação de blog posts, redes sociais e emails marketing',
+    icon: PenTool,
+    color: 'from-secondary to-accent',
+    difficulty: 'Intermediário',
     estimatedTime: '10 min',
-    tags: ['content', 'marketing', 'writing'],
-    nodes: [
-      {
-        id: 'input-1',
-        type: 'input',
-        position: { x: 100, y: 100 },
-        data: { label: 'Content Topic', description: 'Input your topic or keywords' }
-      },
-      {
-        id: 'blog-1',
-        type: 'blog-writer',
-        position: { x: 400, y: 50 },
-        data: { label: 'Blog Post', description: 'Generate blog content' }
-      },
-      {
-        id: 'social-1',
-        type: 'social-media',
-        position: { x: 400, y: 150 },
-        data: { label: 'Social Media', description: 'Create social posts' }
-      },
-      {
-        id: 'email-1',
-        type: 'email-composer',
-        position: { x: 400, y: 250 },
-        data: { label: 'Email Content', description: 'Generate marketing emails' }
-      }
-    ],
-    connections: [
-      { id: 'e1', source: 'input-1', target: 'blog-1' },
-      { id: 'e2', source: 'input-1', target: 'social-1' },
-      { id: 'e3', source: 'input-1', target: 'email-1' }
-    ]
-  },
-  {
-    id: 'data-analysis',
-    name: 'Text Analysis Dashboard',
-    description: 'Comprehensive text analysis with sentiment, entities, and insights',
-    icon: BarChart3,
-    color: 'bg-mangaba-yellow',
-    difficulty: 'Intermediate',
-    estimatedTime: '8 min',
-    tags: ['analysis', 'data', 'insights'],
+    tags: ['conteúdo', 'marketing', 'escrita'],
     nodes: [
       {
         id: 'input-1',
         type: 'input',
         position: { x: 100, y: 150 },
-        data: { label: 'Text Input', description: 'Text to analyze' }
-      },
-      {
-        id: 'sentiment-1',
-        type: 'sentiment',
-        position: { x: 400, y: 50 },
-        data: { label: 'Sentiment', description: 'Analyze emotional tone' }
-      },
-      {
-        id: 'entity-1',
-        type: 'entity-extraction',
-        position: { x: 400, y: 150 },
-        data: { label: 'Entities', description: 'Extract entities' }
+        data: { 
+          label: 'Tópico do Conteúdo', 
+          description: 'Insira o tema ou palavras-chave',
+          config: { placeholder: 'Ex: marketing digital, sustentabilidade...' }
+        }
       },
       {
         id: 'keyword-1',
         type: 'keyword-extraction',
-        position: { x: 400, y: 250 },
-        data: { label: 'Keywords', description: 'Extract keywords' }
+        position: { x: 350, y: 100 },
+        data: { 
+          label: 'Palavras-chave SEO', 
+          description: 'Extrai palavras-chave relevantes',
+          config: { model: 'gemini-pro', language: 'pt-BR' }
+        }
+      },
+      {
+        id: 'blog-1',
+        type: 'blog-writer',
+        position: { x: 600, y: 50 },
+        data: { 
+          label: 'Post de Blog', 
+          description: 'Gera artigo completo para blog',
+          config: { 
+            model: 'gemini-pro',
+            tone: 'profissional',
+            length: 'médio',
+            includeIntro: true,
+            includeConclusao: true
+          }
+        }
+      },
+      {
+        id: 'social-1',
+        type: 'social-media',
+        position: { x: 600, y: 150 },
+        data: { 
+          label: 'Posts Redes Sociais', 
+          description: 'Cria posts para Instagram, LinkedIn',
+          config: { 
+            platforms: ['instagram', 'linkedin', 'facebook'],
+            tone: 'engajante'
+          }
+        }
+      },
+      {
+        id: 'email-1',
+        type: 'email-composer',
+        position: { x: 600, y: 250 },
+        data: { 
+          label: 'Email Marketing', 
+          description: 'Cria campanhas de email',
+          config: { 
+            type: 'newsletter',
+            tone: 'persuasivo'
+          }
+        }
+      }
+    ],
+    connections: [
+      { id: 'e1', source: 'input-1', target: 'keyword-1' },
+      { id: 'e2', source: 'keyword-1', target: 'blog-1' },
+      { id: 'e3', source: 'keyword-1', target: 'social-1' },
+      { id: 'e4', source: 'keyword-1', target: 'email-1' }
+    ]
+  },
+  {
+    id: 'analise-dados',
+    name: 'Dashboard de Análise de Texto',
+    description: 'Análise completa com sentimento, entidades e insights',
+    icon: BarChart3,
+    color: 'from-accent to-primary',
+    difficulty: 'Intermediário',
+    estimatedTime: '8 min',
+    tags: ['análise', 'dados', 'insights'],
+    nodes: [
+      {
+        id: 'input-1',
+        type: 'input',
+        position: { x: 100, y: 200 },
+        data: { 
+          label: 'Texto para Análise', 
+          description: 'Texto que será analisado',
+          config: { placeholder: 'Cole aqui o texto para análise...' }
+        }
+      },
+      {
+        id: 'sentiment-1',
+        type: 'sentiment',
+        position: { x: 350, y: 100 },
+        data: { 
+          label: 'Análise de Sentimento', 
+          description: 'Avalia o tom emocional',
+          config: { model: 'gemini-pro', detalhado: true }
+        }
+      },
+      {
+        id: 'entity-1',
+        type: 'entity-extraction',
+        position: { x: 350, y: 200 },
+        data: { 
+          label: 'Extração de Entidades', 
+          description: 'Identifica pessoas, lugares, organizações',
+          config: { tipos: ['PESSOA', 'LOCAL', 'ORGANIZACAO', 'DATA'] }
+        }
+      },
+      {
+        id: 'keyword-1',
+        type: 'keyword-extraction',
+        position: { x: 350, y: 300 },
+        data: { 
+          label: 'Palavras-chave', 
+          description: 'Extrai termos importantes',
+          config: { quantidade: 10, relevancia: 'alta' }
+        }
+      },
+      {
+        id: 'classification-1',
+        type: 'text-classification',
+        position: { x: 600, y: 150 },
+        data: { 
+          label: 'Classificação', 
+          description: 'Categoriza o conteúdo',
+          config: { categorias: ['positivo', 'neutro', 'negativo', 'urgente'] }
+        }
       },
       {
         id: 'output-1',
         type: 'output',
-        position: { x: 700, y: 150 },
-        data: { label: 'Analysis Report', description: 'Comprehensive analysis results' }
+        position: { x: 850, y: 200 },
+        data: { 
+          label: 'Relatório de Análise', 
+          description: 'Resultado completo da análise'
+        }
       }
     ],
     connections: [
       { id: 'e1', source: 'input-1', target: 'sentiment-1' },
       { id: 'e2', source: 'input-1', target: 'entity-1' },
       { id: 'e3', source: 'input-1', target: 'keyword-1' },
-      { id: 'e4', source: 'sentiment-1', target: 'output-1' },
+      { id: 'e4', source: 'sentiment-1', target: 'classification-1' },
       { id: 'e5', source: 'entity-1', target: 'output-1' },
-      { id: 'e6', source: 'keyword-1', target: 'output-1' }
+      { id: 'e6', source: 'keyword-1', target: 'output-1' },
+      { id: 'e7', source: 'classification-1', target: 'output-1' }
     ]
   },
   {
-    id: 'translation-service',
-    name: 'Multi-Language Translator',
-    description: 'Professional translation service with quality checks',
+    id: 'tradutor-multilenguas',
+    name: 'Tradutor Profissional Multilingue',
+    description: 'Serviço de tradução com verificação de qualidade e adaptação cultural',
     icon: Languages,
-    color: 'bg-mangaba-earth',
-    difficulty: 'Beginner',
-    estimatedTime: '3 min',
-    tags: ['translation', 'multilingual', 'communication'],
+    color: 'from-primary to-accent',
+    difficulty: 'Iniciante',
+    estimatedTime: '5 min',
+    tags: ['tradução', 'multilingue', 'comunicação'],
     nodes: [
       {
         id: 'input-1',
         type: 'input',
-        position: { x: 100, y: 100 },
-        data: { label: 'Source Text', description: 'Text to translate' }
+        position: { x: 100, y: 150 },
+        data: { 
+          label: 'Texto Original', 
+          description: 'Texto para traduzir',
+          config: { placeholder: 'Digite o texto para tradução...' }
+        }
       },
       {
         id: 'translator-1',
         type: 'translator',
         position: { x: 400, y: 100 },
-        data: { label: 'Translator', description: 'Translate to target language' }
+        data: { 
+          label: 'Tradutor Principal', 
+          description: 'Traduz para o idioma alvo',
+          config: { 
+            from: 'pt',
+            to: 'en',
+            model: 'gemini-pro',
+            preserveFormatting: true
+          }
+        }
       },
       {
         id: 'grammar-1',
         type: 'grammar-checker',
-        position: { x: 700, y: 100 },
-        data: { label: 'Quality Check', description: 'Check translation quality' }
+        position: { x: 400, y: 200 },
+        data: { 
+          label: 'Verificação Gramatical', 
+          description: 'Verifica gramática da tradução',
+          config: { language: 'en', correctAutomatically: true }
+        }
+      },
+      {
+        id: 'style-1',
+        type: 'style-enhancer',
+        position: { x: 700, y: 150 },
+        data: { 
+          label: 'Refinamento de Estilo', 
+          description: 'Melhora o estilo da tradução',
+          config: { 
+            tone: 'natural',
+            culturalAdaptation: true
+          }
+        }
       },
       {
         id: 'output-1',
         type: 'output',
-        position: { x: 1000, y: 100 },
-        data: { label: 'Translated Text', description: 'Final translated result' }
+        position: { x: 1000, y: 150 },
+        data: { 
+          label: 'Tradução Final', 
+          description: 'Texto traduzido e refinado'
+        }
       }
     ],
     connections: [
       { id: 'e1', source: 'input-1', target: 'translator-1' },
       { id: 'e2', source: 'translator-1', target: 'grammar-1' },
-      { id: 'e3', source: 'grammar-1', target: 'output-1' }
+      { id: 'e3', source: 'grammar-1', target: 'style-1' },
+      { id: 'e4', source: 'style-1', target: 'output-1' }
     ]
   },
   {
-    id: 'code-assistant',
-    name: 'AI Code Assistant',
-    description: 'Complete coding workflow with generation, review, and documentation',
+    id: 'revisor-codigo',
+    name: 'Revisor de Código Inteligente',
+    description: 'Sistema completo de revisão, detecção de bugs e geração de documentação',
     icon: Code,
-    color: 'bg-mangaba-amber',
-    difficulty: 'Advanced',
-    estimatedTime: '15 min',
-    tags: ['coding', 'development', 'ai assistant'],
+    color: 'from-secondary to-primary',
+    difficulty: 'Avançado',
+    estimatedTime: '12 min',
+    tags: ['código', 'revisão', 'qualidade'],
     nodes: [
       {
         id: 'input-1',
         type: 'input',
-        position: { x: 100, y: 150 },
-        data: { label: 'Code Request', description: 'Describe what code you need' }
+        position: { x: 100, y: 200 },
+        data: { 
+          label: 'Código Fonte', 
+          description: 'Cole o código para revisão',
+          config: { 
+            placeholder: 'Cole aqui o código para análise...',
+            multiline: true
+          }
+        }
       },
       {
-        id: 'code-gen-1',
-        type: 'code-generator',
-        position: { x: 400, y: 100 },
-        data: { label: 'Generate Code', description: 'AI generates code' }
-      },
-      {
-        id: 'code-review-1',
+        id: 'code-reviewer-1',
         type: 'code-reviewer',
-        position: { x: 700, y: 100 },
-        data: { label: 'Review Code', description: 'Check code quality' }
+        position: { x: 350, y: 100 },
+        data: { 
+          label: 'Análise de Qualidade', 
+          description: 'Revisa a qualidade do código',
+          config: { 
+            language: 'auto',
+            checkStyle: true,
+            checkPerformance: true,
+            checkSecurity: true
+          }
+        }
       },
       {
         id: 'bug-finder-1',
         type: 'bug-finder',
-        position: { x: 700, y: 200 },
-        data: { label: 'Find Bugs', description: 'Detect potential issues' }
+        position: { x: 350, y: 200 },
+        data: { 
+          label: 'Detector de Bugs', 
+          description: 'Encontra possíveis bugs e vulnerabilidades',
+          config: { 
+            severity: ['crítico', 'alto', 'médio'],
+            includeSecurityIssues: true
+          }
+        }
       },
       {
-        id: 'doc-1',
+        id: 'documentation-1',
         type: 'documentation',
-        position: { x: 1000, y: 150 },
-        data: { label: 'Generate Docs', description: 'Create documentation' }
+        position: { x: 350, y: 300 },
+        data: { 
+          label: 'Gerador de Documentação', 
+          description: 'Cria documentação automática',
+          config: { 
+            style: 'JSDoc',
+            includeExamples: true,
+            language: 'pt-BR'
+          }
+        }
+      },
+      {
+        id: 'code-generator-1',
+        type: 'code-generator',
+        position: { x: 600, y: 200 },
+        data: { 
+          label: 'Sugestões de Melhoria', 
+          description: 'Gera código melhorado',
+          config: { 
+            optimizeFor: 'readability',
+            includeTests: true
+          }
+        }
+      },
+      {
+        id: 'output-1',
+        type: 'output',
+        position: { x: 850, y: 200 },
+        data: { 
+          label: 'Relatório de Revisão', 
+          description: 'Relatório completo da análise'
+        }
       }
     ],
     connections: [
-      { id: 'e1', source: 'input-1', target: 'code-gen-1' },
-      { id: 'e2', source: 'code-gen-1', target: 'code-review-1' },
-      { id: 'e3', source: 'code-gen-1', target: 'bug-finder-1' },
-      { id: 'e4', source: 'code-review-1', target: 'doc-1' },
-      { id: 'e5', source: 'bug-finder-1', target: 'doc-1' }
+      { id: 'e1', source: 'input-1', target: 'code-reviewer-1' },
+      { id: 'e2', source: 'input-1', target: 'bug-finder-1' },
+      { id: 'e3', source: 'input-1', target: 'documentation-1' },
+      { id: 'e4', source: 'code-reviewer-1', target: 'code-generator-1' },
+      { id: 'e5', source: 'bug-finder-1', target: 'code-generator-1' },
+      { id: 'e6', source: 'code-generator-1', target: 'output-1' },
+      { id: 'e7', source: 'documentation-1', target: 'output-1' }
     ]
   },
   {
-    id: 'email-automation',
-    name: 'Smart Email Automation',
-    description: 'Automated email responses with tone analysis and personalization',
-    icon: Mail,
-    color: 'bg-mangaba-coral',
-    difficulty: 'Intermediate',
-    estimatedTime: '7 min',
-    tags: ['email', 'automation', 'personalization'],
+    id: 'assistente-vendas',
+    name: 'Assistente de Vendas Inteligente',
+    description: 'Bot especializado em qualificação de leads e suporte a vendas',
+    icon: TrendingUp,
+    color: 'from-accent to-secondary',
+    difficulty: 'Intermediário',
+    estimatedTime: '8 min',
+    tags: ['vendas', 'leads', 'crm'],
     nodes: [
       {
         id: 'input-1',
         type: 'input',
         position: { x: 100, y: 150 },
-        data: { label: 'Incoming Email', description: 'Email to respond to' }
-      },
-      {
-        id: 'sentiment-1',
-        type: 'sentiment',
-        position: { x: 400, y: 100 },
-        data: { label: 'Analyze Tone', description: 'Detect email sentiment' }
+        data: { 
+          label: 'Interesse do Cliente', 
+          description: 'Captura interesse e necessidades',
+          config: { placeholder: 'Descreva o que precisa...' }
+        }
       },
       {
         id: 'entity-1',
         type: 'entity-extraction',
-        position: { x: 400, y: 200 },
-        data: { label: 'Extract Info', description: 'Get key information' }
+        position: { x: 350, y: 100 },
+        data: { 
+          label: 'Qualificação de Lead', 
+          description: 'Extrai informações do prospect',
+          config: { 
+            extractCompany: true,
+            extractBudget: true,
+            extractTimeline: true
+          }
+        }
       },
       {
-        id: 'email-composer-1',
+        id: 'sales-assistant-1',
+        type: 'sales-assistant',
+        position: { x: 350, y: 200 },
+        data: { 
+          label: 'Consultor de Vendas', 
+          description: 'Responde perguntas e qualifica',
+          config: { 
+            salesPersonality: 'consultivo',
+            products: 'catalogo-geral',
+            upselling: true
+          }
+        }
+      },
+      {
+        id: 'email-1',
         type: 'email-composer',
-        position: { x: 700, y: 150 },
-        data: { label: 'Compose Reply', description: 'Generate personalized response' }
+        position: { x: 600, y: 100 },
+        data: { 
+          label: 'Follow-up Email', 
+          description: 'Cria email de acompanhamento',
+          config: { 
+            template: 'sales-followup',
+            personalized: true
+          }
+        }
       },
       {
         id: 'output-1',
         type: 'output',
-        position: { x: 1000, y: 150 },
-        data: { label: 'Email Response', description: 'Final email to send' }
+        position: { x: 600, y: 200 },
+        data: { 
+          label: 'Proposta Personalizada', 
+          description: 'Gera proposta baseada no perfil'
+        }
+      }
+    ],
+    connections: [
+      { id: 'e1', source: 'input-1', target: 'entity-1' },
+      { id: 'e2', source: 'input-1', target: 'sales-assistant-1' },
+      { id: 'e3', source: 'entity-1', target: 'sales-assistant-1' },
+      { id: 'e4', source: 'sales-assistant-1', target: 'email-1' },
+      { id: 'e5', source: 'sales-assistant-1', target: 'output-1' }
+    ]
+  },
+  {
+    id: 'pesquisador-inteligente',
+    name: 'Pesquisador Inteligente',
+    description: 'Sistema de pesquisa avançada com análise e síntese de informações',
+    icon: Search,
+    color: 'from-primary to-secondary',
+    difficulty: 'Intermediário',
+    estimatedTime: '10 min',
+    tags: ['pesquisa', 'análise', 'síntese'],
+    nodes: [
+      {
+        id: 'input-1',
+        type: 'input',
+        position: { x: 100, y: 150 },
+        data: { 
+          label: 'Tópico de Pesquisa', 
+          description: 'Defina o que pesquisar',
+          config: { placeholder: 'Ex: tendências de IA em 2024...' }
+        }
+      },
+      {
+        id: 'web-search-1',
+        type: 'web-search',
+        position: { x: 350, y: 100 },
+        data: { 
+          label: 'Busca na Web', 
+          description: 'Pesquisa informações atualizadas',
+          config: { 
+            sources: ['google', 'bing'],
+            resultsCount: 10,
+            language: 'pt-BR'
+          }
+        }
+      },
+      {
+        id: 'entity-1',
+        type: 'entity-extraction',
+        position: { x: 350, y: 200 },
+        data: { 
+          label: 'Análise de Conteúdo', 
+          description: 'Extrai informações relevantes',
+          config: { 
+            extractDates: true,
+            extractPeople: true,
+            extractStatistics: true
+          }
+        }
+      },
+      {
+        id: 'summary-1',
+        type: 'summary-generator',
+        position: { x: 600, y: 100 },
+        data: { 
+          label: 'Síntese de Pesquisa', 
+          description: 'Resume os achados principais',
+          config: { 
+            length: 'detalhado',
+            includeQuotes: true,
+            structuredFormat: true
+          }
+        }
+      },
+      {
+        id: 'blog-1',
+        type: 'blog-writer',
+        position: { x: 600, y: 200 },
+        data: { 
+          label: 'Artigo de Pesquisa', 
+          description: 'Transforma pesquisa em artigo',
+          config: { 
+            style: 'acadêmico',
+            includeSources: true,
+            includeGraphics: true
+          }
+        }
+      },
+      {
+        id: 'output-1',
+        type: 'output',
+        position: { x: 850, y: 150 },
+        data: { 
+          label: 'Relatório Final', 
+          description: 'Resultado completo da pesquisa'
+        }
+      }
+    ],
+    connections: [
+      { id: 'e1', source: 'input-1', target: 'web-search-1' },
+      { id: 'e2', source: 'web-search-1', target: 'entity-1' },
+      { id: 'e3', source: 'entity-1', target: 'summary-1' },
+      { id: 'e4', source: 'entity-1', target: 'blog-1' },
+      { id: 'e5', source: 'summary-1', target: 'output-1' },
+      { id: 'e6', source: 'blog-1', target: 'output-1' }
+    ]
+  },
+  {
+    id: 'moderador-comunidade',
+    name: 'Moderador de Comunidade IA',
+    description: 'Sistema de moderação automática para redes sociais e fóruns',
+    icon: Shield,
+    color: 'from-secondary to-accent',
+    difficulty: 'Avançado',
+    estimatedTime: '15 min',
+    tags: ['moderação', 'comunidade', 'segurança'],
+    nodes: [
+      {
+        id: 'input-1',
+        type: 'input',
+        position: { x: 100, y: 200 },
+        data: { 
+          label: 'Conteúdo da Postagem', 
+          description: 'Recebe postagens para moderação',
+          config: { placeholder: 'Cole aqui o conteúdo para moderar...' }
+        }
+      },
+      {
+        id: 'sentiment-1',
+        type: 'sentiment',
+        position: { x: 350, y: 100 },
+        data: { 
+          label: 'Análise de Toxicidade', 
+          description: 'Detecta conteúdo tóxico ou ofensivo',
+          config: { 
+            detectHate: true,
+            detectSpam: true,
+            detectHarassment: true
+          }
+        }
+      },
+      {
+        id: 'classification-1',
+        type: 'text-classification',
+        position: { x: 350, y: 200 },
+        data: { 
+          label: 'Classificação de Conteúdo', 
+          description: 'Categoriza tipo de conteúdo',
+          config: { 
+            categories: ['apropriado', 'questionável', 'inapropriado', 'spam'],
+            confidenceThreshold: 0.8
+          }
+        }
+      },
+      {
+        id: 'entity-1',
+        type: 'entity-extraction',
+        position: { x: 350, y: 300 },
+        data: { 
+          label: 'Detecção de Violações', 
+          description: 'Identifica violações específicas',
+          config: { 
+            detectPII: true,
+            detectCopyright: true,
+            detectLinks: true
+          }
+        }
+      },
+      {
+        id: 'llm-1',
+        type: 'llm',
+        position: { x: 600, y: 150 },
+        data: { 
+          label: 'Decisão de Moderação', 
+          description: 'Decide ação a ser tomada',
+          config: { 
+            role: 'moderador',
+            actions: ['aprovar', 'revisar', 'rejeitar', 'banir'],
+            explainDecision: true
+          }
+        }
+      },
+      {
+        id: 'email-1',
+        type: 'email-composer',
+        position: { x: 600, y: 250 },
+        data: { 
+          label: 'Notificação ao Usuário', 
+          description: 'Envia feedback sobre moderação',
+          config: { 
+            template: 'moderation-feedback',
+            includeGuidelines: true
+          }
+        }
+      },
+      {
+        id: 'output-1',
+        type: 'output',
+        position: { x: 850, y: 200 },
+        data: { 
+          label: 'Ação de Moderação', 
+          description: 'Resultado da moderação automática'
+        }
       }
     ],
     connections: [
       { id: 'e1', source: 'input-1', target: 'sentiment-1' },
-      { id: 'e2', source: 'input-1', target: 'entity-1' },
-      { id: 'e3', source: 'sentiment-1', target: 'email-composer-1' },
-      { id: 'e4', source: 'entity-1', target: 'email-composer-1' },
-      { id: 'e5', source: 'email-composer-1', target: 'output-1' }
+      { id: 'e2', source: 'input-1', target: 'classification-1' },
+      { id: 'e3', source: 'input-1', target: 'entity-1' },
+      { id: 'e4', source: 'sentiment-1', target: 'llm-1' },
+      { id: 'e5', source: 'classification-1', target: 'llm-1' },
+      { id: 'e6', source: 'entity-1', target: 'llm-1' },
+      { id: 'e7', source: 'llm-1', target: 'email-1' },
+      { id: 'e8', source: 'llm-1', target: 'output-1' }
+    ]
+  },
+  {
+    id: 'tutor-educacional',
+    name: 'Tutor Educacional Personalizado',
+    description: 'Sistema de ensino adaptativo com avaliação e feedback personalizado',
+    icon: GraduationCap,
+    color: 'from-accent to-primary',
+    difficulty: 'Avançado',
+    estimatedTime: '12 min',
+    tags: ['educação', 'tutoria', 'aprendizado'],
+    nodes: [
+      {
+        id: 'input-1',
+        type: 'input',
+        position: { x: 100, y: 150 },
+        data: { 
+          label: 'Pergunta do Estudante', 
+          description: 'Recebe dúvidas e questões',
+          config: { placeholder: 'Digite sua pergunta ou exercício...' }
+        }
+      },
+      {
+        id: 'classification-1',
+        type: 'text-classification',
+        position: { x: 350, y: 100 },
+        data: { 
+          label: 'Análise de Nível', 
+          description: 'Identifica nível de dificuldade',
+          config: { 
+            categories: ['básico', 'intermediário', 'avançado'],
+            subject: 'auto-detect'
+          }
+        }
+      },
+      {
+        id: 'llm-1',
+        type: 'llm',
+        position: { x: 350, y: 200 },
+        data: { 
+          label: 'Tutor Inteligente', 
+          description: 'Responde de forma pedagógica',
+          config: { 
+            role: 'tutor-educacional',
+            adaptToLevel: true,
+            includeExamples: true,
+            encourageThinking: true
+          }
+        }
+      },
+      {
+        id: 'code-generator-1',
+        type: 'code-generator',
+        position: { x: 600, y: 100 },
+        data: { 
+          label: 'Exercícios Práticos', 
+          description: 'Gera exercícios relacionados',
+          config: { 
+            difficulty: 'adaptive',
+            includeHints: true,
+            stepByStep: true
+          }
+        }
+      },
+      {
+        id: 'summary-1',
+        type: 'summary-generator',
+        position: { x: 600, y: 200 },
+        data: { 
+          label: 'Resumo da Lição', 
+          description: 'Cria resumo dos conceitos',
+          config: { 
+            includeKeyPoints: true,
+            visualAids: true,
+            nextSteps: true
+          }
+        }
+      },
+      {
+        id: 'output-1',
+        type: 'output',
+        position: { x: 850, y: 150 },
+        data: { 
+          label: 'Plano de Estudos', 
+          description: 'Material educacional personalizado'
+        }
+      }
+    ],
+    connections: [
+      { id: 'e1', source: 'input-1', target: 'classification-1' },
+      { id: 'e2', source: 'input-1', target: 'llm-1' },
+      { id: 'e3', source: 'classification-1', target: 'llm-1' },
+      { id: 'e4', source: 'llm-1', target: 'code-generator-1' },
+      { id: 'e5', source: 'llm-1', target: 'summary-1' },
+      { id: 'e6', source: 'code-generator-1', target: 'output-1' },
+      { id: 'e7', source: 'summary-1', target: 'output-1' }
+    ]
+  },
+  {
+    id: 'consultor-negocios',
+    name: 'Consultor de Negócios IA',
+    description: 'Análise empresarial com insights estratégicos e planos de ação',
+    icon: Building,
+    color: 'from-primary to-accent',
+    difficulty: 'Avançado',
+    estimatedTime: '18 min',
+    tags: ['negócios', 'estratégia', 'consultoria'],
+    nodes: [
+      {
+        id: 'input-1',
+        type: 'input',
+        position: { x: 100, y: 200 },
+        data: { 
+          label: 'Situação do Negócio', 
+          description: 'Descreva o desafio empresarial',
+          config: { 
+            placeholder: 'Descreva a situação atual da empresa...',
+            multiline: true
+          }
+        }
+      },
+      {
+        id: 'entity-1',
+        type: 'entity-extraction',
+        position: { x: 350, y: 100 },
+        data: { 
+          label: 'Análise de Mercado', 
+          description: 'Extrai informações do mercado',
+          config: { 
+            extractCompetitors: true,
+            extractMarketSize: true,
+            extractTrends: true
+          }
+        }
+      },
+      {
+        id: 'web-search-1',
+        type: 'web-search',
+        position: { x: 350, y: 200 },
+        data: { 
+          label: 'Pesquisa de Tendências', 
+          description: 'Busca dados atuais do setor',
+          config: { 
+            focusOn: 'business-trends',
+            includeStatistics: true,
+            timeFrame: 'recent'
+          }
+        }
+      },
+      {
+        id: 'classification-1',
+        type: 'text-classification',
+        position: { x: 350, y: 300 },
+        data: { 
+          label: 'Análise SWOT', 
+          description: 'Identifica forças, fraquezas, oportunidades',
+          config: { 
+            categories: ['força', 'fraqueza', 'oportunidade', 'ameaça'],
+            businessContext: true
+          }
+        }
+      },
+      {
+        id: 'llm-1',
+        type: 'llm',
+        position: { x: 600, y: 150 },
+        data: { 
+          label: 'Consultor Estratégico', 
+          description: 'Gera insights e recomendações',
+          config: { 
+            role: 'consultor-sênior',
+            includeActionPlan: true,
+            includeMetrics: true,
+            includeTimeline: true
+          }
+        }
+      },
+      {
+        id: 'blog-1',
+        type: 'blog-writer',
+        position: { x: 600, y: 250 },
+        data: { 
+          label: 'Plano de Negócios', 
+          description: 'Elabora plano estruturado',
+          config: { 
+            format: 'business-plan',
+            includeFinancials: true,
+            includeStrategy: true
+          }
+        }
+      },
+      {
+        id: 'email-1',
+        type: 'email-composer',
+        position: { x: 850, y: 100 },
+        data: { 
+          label: 'Resumo Executivo', 
+          description: 'Cria apresentação para executivos',
+          config: { 
+            audience: 'executives',
+            format: 'professional',
+            includeGraphs: true
+          }
+        }
+      },
+      {
+        id: 'output-1',
+        type: 'output',
+        position: { x: 850, y: 200 },
+        data: { 
+          label: 'Consultoria Completa', 
+          description: 'Relatório final com estratégias'
+        }
+      }
+    ],
+    connections: [
+      { id: 'e1', source: 'input-1', target: 'entity-1' },
+      { id: 'e2', source: 'input-1', target: 'web-search-1' },
+      { id: 'e3', source: 'input-1', target: 'classification-1' },
+      { id: 'e4', source: 'entity-1', target: 'llm-1' },
+      { id: 'e5', source: 'web-search-1', target: 'llm-1' },
+      { id: 'e6', source: 'classification-1', target: 'llm-1' },
+      { id: 'e7', source: 'llm-1', target: 'blog-1' },
+      { id: 'e8', source: 'llm-1', target: 'email-1' },
+      { id: 'e9', source: 'blog-1', target: 'output-1' },
+      { id: 'e10', source: 'email-1', target: 'output-1' }
     ]
   }
 ];
@@ -633,173 +1276,162 @@ const flowTemplates: Template[] = [
 interface FlowSidebarProps {
   isOpen: boolean;
   onAddNode: (type: string, position?: { x: number; y: number }) => void;
-  onLoadTemplate?: (template: Template) => void;
+  onLoadTemplate: (template: Template) => void;
 }
 
 export const FlowSidebar = ({ isOpen, onAddNode, onLoadTemplate }: FlowSidebarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
-  const allComponents = advancedComponents.flatMap(cat => cat.components);
-  const filteredComponents = allComponents.filter(component =>
-    (selectedCategory === 'all' || component.category.toLowerCase() === selectedCategory) &&
-    (component.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-     component.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-     component.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())))
+  const filteredComponents = advancedComponents.flatMap(category => 
+    category.components.filter(component =>
+      component.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      component.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      component.description.toLowerCase().includes(searchQuery.toLowerCase())
+    ).filter(component => 
+      selectedCategory === 'all' || category.id === selectedCategory
+    )
+  );
+
+  const filteredTemplates = flowTemplates.filter(template =>
+    template.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    template.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())) ||
+    template.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   if (!isOpen) return null;
 
   return (
-    <aside className="w-96 bg-gradient-card border-r border-sidebar-border flex flex-col shadow-feature">
-      <div className="p-4 border-b border-sidebar-border bg-gradient-mangaba-primary">
-        <h2 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-          <Sparkles className="h-5 w-5" />
-          AI Components & Templates
-        </h2>
+    <div className="w-80 bg-card border-r border-border flex flex-col h-full">
+      <div className="p-4 border-b border-border">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+            <Sparkles className="w-4 h-4 text-primary-foreground" />
+          </div>
+          <h2 className="text-lg font-semibold text-gradient">Mangaba AI</h2>
+        </div>
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+          <input
+            type="text"
+            placeholder="Buscar componentes..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-10 pr-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background"
+          />
+        </div>
       </div>
 
       <Tabs defaultValue="components" className="flex-1 flex flex-col">
-        <TabsList className="grid grid-cols-2 mx-4 mt-4">
-          <TabsTrigger value="components" className="text-xs">Components</TabsTrigger>
-          <TabsTrigger value="templates" className="text-xs">Templates</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2 m-4 mb-2">
+          <TabsTrigger value="components">Componentes</TabsTrigger>
+          <TabsTrigger value="templates">Templates</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="components" className="flex-1 flex flex-col mt-4">
-          <div className="px-4 space-y-3">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <input
-                placeholder="Search components..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 text-sm bg-white border border-mangaba-gold/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-mangaba-gold/50"
-              />
+        <TabsContent value="components" className="flex-1 px-4 pb-4 mt-0">
+          <ScrollArea className="h-full">
+            <div className="space-y-2 mb-4">
+              <Button
+                variant={selectedCategory === 'all' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setSelectedCategory('all')}
+                className="w-full justify-start"
+              >
+                Todos os Componentes
+              </Button>
+              {advancedComponents.map(category => (
+                <Button
+                  key={category.id}
+                  variant={selectedCategory === category.id ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setSelectedCategory(category.id)}
+                  className="w-full justify-start"
+                >
+                  <category.icon className="w-4 h-4 mr-2" />
+                  {category.name}
+                </Button>
+              ))}
             </div>
 
-            <ScrollArea className="h-8">
-              <div className="flex gap-2 pb-2">
-                <Button
-                  variant={selectedCategory === 'all' ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => setSelectedCategory('all')}
-                  className="text-xs"
+            <div className="space-y-2">
+              {filteredComponents.map((component, index) => (
+                <Card
+                  key={`${component.type}-${index}`}
+                  className="p-3 cursor-pointer hover:shadow-md transition-all duration-200 border-gradient hover:scale-105"
+                  onClick={() => onAddNode(component.type)}
                 >
-                  All
-                </Button>
-                {Array.from(new Set(allComponents.map(c => c.category))).map(category => (
-                  <Button
-                    key={category}
-                    variant={selectedCategory === category.toLowerCase() ? 'default' : 'outline'}
-                    size="sm"
-                    onClick={() => setSelectedCategory(category.toLowerCase())}
-                    className="text-xs whitespace-nowrap"
-                  >
-                    {category}
-                  </Button>
-                ))}
-              </div>
-            </ScrollArea>
-          </div>
-
-          <ScrollArea className="flex-1 px-4 pb-4">
-            <div className="space-y-3 mt-4">
-              {filteredComponents.map((component, index) => {
-                const IconComponent = component.icon;
-                return (
-                  <Card
-                    key={`${component.type}-${index}`}
-                    className="p-3 cursor-pointer hover:shadow-node transition-all duration-200 hover:scale-[1.02] border-mangaba-gold/20 group"
-                    onClick={() => onAddNode(component.type)}
-                  >
-                    <div className="flex items-start space-x-3">
-                      <div className={`w-10 h-10 ${component.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200`}>
-                        <IconComponent className="h-5 w-5 text-white" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between mb-1">
-                          <h4 className="text-sm font-medium text-card-foreground">
-                            {component.label}
-                          </h4>
-                          <Badge variant="secondary" className="text-xs">
-                            {component.category}
+                  <div className="flex items-start gap-3">
+                    <div className={`w-10 h-10 rounded-lg ${component.color} flex items-center justify-center flex-shrink-0`}>
+                      <component.icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-medium text-sm text-foreground truncate">
+                        {component.label}
+                      </h3>
+                      <p className="text-xs text-muted-foreground line-clamp-2 mt-1">
+                        {component.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1 mt-2">
+                        {component.tags.slice(0, 2).map(tag => (
+                          <Badge key={tag} variant="secondary" className="text-xs">
+                            {tag}
                           </Badge>
-                        </div>
-                        <p className="text-xs text-muted-foreground line-clamp-2 mb-2">
-                          {component.description}
-                        </p>
-                        <div className="flex flex-wrap gap-1">
-                          {component.tags.slice(0, 3).map(tag => (
-                            <Badge key={tag} variant="outline" className="text-xs px-1 py-0">
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
+                        ))}
                       </div>
                     </div>
-                  </Card>
-                );
-              })}
+                  </div>
+                </Card>
+              ))}
             </div>
           </ScrollArea>
         </TabsContent>
 
-        <TabsContent value="templates" className="flex-1 flex flex-col mt-4">
-          <ScrollArea className="flex-1 px-4 pb-4">
-            <div className="space-y-3">
-              {flowTemplates.map((template) => {
-                const IconComponent = template.icon;
-                return (
-                  <Card
-                    key={template.id}
-                    className="p-4 cursor-pointer hover:shadow-node transition-all duration-200 hover:scale-[1.02] border-mangaba-gold/20 group"
-                    onClick={() => {
-                      if (onLoadTemplate) {
-                        onLoadTemplate(template);
-                      }
-                    }}
-                  >
-                    <div className="flex items-start space-x-3">
-                      <div className={`w-12 h-12 ${template.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200`}>
-                        <IconComponent className="h-6 w-6 text-white" />
+        <TabsContent value="templates" className="flex-1 px-4 pb-4 mt-0">
+          <ScrollArea className="h-full">
+            <div className="space-y-4">
+              {filteredTemplates.map(template => (
+                <Card
+                  key={template.id}
+                  className="p-4 cursor-pointer hover:shadow-lg transition-all duration-200 border-gradient-animated hover:scale-102"
+                  onClick={() => onLoadTemplate(template)}
+                >
+                  <div className="flex items-start gap-3">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${template.color} flex items-center justify-center flex-shrink-0`}>
+                      <template.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between mb-2">
+                        <h3 className="font-semibold text-sm text-foreground">
+                          {template.name}
+                        </h3>
+                        <Badge variant="outline" className="text-xs">
+                          {template.difficulty}
+                        </Badge>
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-start justify-between mb-2">
-                          <h4 className="text-sm font-semibold text-card-foreground">
-                            {template.name}
-                          </h4>
-                          <div className="flex flex-col items-end gap-1">
-                            <Badge 
-                              variant={template.difficulty === 'Beginner' ? 'default' : template.difficulty === 'Intermediate' ? 'secondary' : 'destructive'}
-                              className="text-xs"
-                            >
-                              {template.difficulty}
-                            </Badge>
-                            <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                              <Clock className="h-3 w-3" />
-                              {template.estimatedTime}
-                            </div>
-                          </div>
-                        </div>
-                        <p className="text-xs text-muted-foreground line-clamp-2 mb-2">
-                          {template.description}
-                        </p>
+                      <p className="text-xs text-muted-foreground line-clamp-2 mb-3">
+                        {template.description}
+                      </p>
+                      <div className="flex items-center justify-between">
                         <div className="flex flex-wrap gap-1">
                           {template.tags.slice(0, 3).map(tag => (
-                            <Badge key={tag} variant="outline" className="text-xs px-1 py-0">
+                            <Badge key={tag} variant="secondary" className="text-xs">
                               {tag}
                             </Badge>
                           ))}
                         </div>
+                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                          <Clock className="w-3 h-3" />
+                          {template.estimatedTime}
+                        </div>
                       </div>
                     </div>
-                  </Card>
-                );
-              })}
+                  </div>
+                </Card>
+              ))}
             </div>
           </ScrollArea>
         </TabsContent>
       </Tabs>
-    </aside>
+    </div>
   );
 };

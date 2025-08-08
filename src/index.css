@@ -8,31 +8,26 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Mangaba Ultra Advanced Color Palette */
-    --mangaba-gold: 45 98% 70%;           /* Dourado radiante */
-    --mangaba-gold-dark: 42 88% 58%;      /* Dourado profundo */
-    --mangaba-gold-light: 48 100% 82%;    /* Dourado luminoso */
-    --mangaba-gold-glow: 45 95% 85%;      /* Dourado brilhante */
+    /* Paleta de Cores Oficial Mangaba AI */
+    --mangaba-primary: 85 85% 45%;        /* Verde principal do logo */
+    --mangaba-primary-dark: 80 80% 35%;   /* Verde escuro */
+    --mangaba-primary-light: 90 90% 55%;  /* Verde claro */
+    --mangaba-primary-glow: 85 95% 85%;   /* Verde brilhante */
     
-    --mangaba-orange: 32 95% 72%;         /* Laranja vibrante */
-    --mangaba-orange-dark: 28 88% 60%;    /* Laranja escuro */
-    --mangaba-orange-light: 36 98% 82%;   /* Laranja claro */
-    --mangaba-orange-coral: 30 92% 68%;   /* Coral mangaba */
+    --mangaba-secondary: 35 85% 55%;      /* Laranja complementar */
+    --mangaba-secondary-dark: 30 80% 45%; /* Laranja escuro */
+    --mangaba-secondary-light: 40 90% 65%; /* Laranja claro */
+    --mangaba-secondary-coral: 32 88% 60%; /* Coral mangaba */
     
-    --mangaba-green: 140 75% 68%;         /* Verde tropical */
-    --mangaba-green-dark: 135 70% 55%;    /* Verde profundo */
-    --mangaba-green-light: 145 80% 78%;   /* Verde claro */
-    --mangaba-green-mint: 150 70% 75%;    /* Verde menta */
+    --mangaba-accent: 65 75% 50%;         /* Amarelo de destaque */
+    --mangaba-accent-dark: 60 70% 40%;    /* Amarelo escuro */
+    --mangaba-accent-light: 70 80% 60%;   /* Amarelo claro */
+    --mangaba-accent-citrus: 68 78% 55%;  /* Amarelo cítrico */
     
-    --mangaba-yellow: 50 98% 78%;         /* Amarelo solar */
-    --mangaba-yellow-dark: 47 90% 65%;    /* Amarelo dourado */
-    --mangaba-yellow-light: 53 100% 88%;  /* Amarelo claro */
-    --mangaba-yellow-citrus: 48 95% 75%;  /* Amarelo cítrico */
-    
-    --mangaba-earth: 35 75% 52%;          /* Terra rica */
-    --mangaba-earth-dark: 32 70% 42%;     /* Terra escura */
-    --mangaba-earth-light: 38 80% 62%;    /* Terra clara */
-    --mangaba-bark: 30 60% 38%;           /* Casca da árvore */
+    --mangaba-neutral: 45 20% 95%;        /* Neutro claro */
+    --mangaba-neutral-dark: 45 15% 20%;   /* Neutro escuro */
+    --mangaba-neutral-medium: 45 10% 60%; /* Neutro médio */
+    --mangaba-surface: 45 25% 98%;        /* Superfície base */
 
     /* Neutral Ultra Palette */
     --mangaba-cream: 45 90% 96%;          /* Creme da polpa */
@@ -46,27 +41,27 @@ All colors MUST be HSL.
     --mangaba-lime: 65 85% 70%;           /* Lima tropical */
     --mangaba-bronze: 35 85% 45%;         /* Bronze antigo */
     
-    /* Main Theme Colors */
-    --background: var(--mangaba-pearl);
-    --foreground: var(--mangaba-bark);
+    /* Cores Principais do Tema Mangaba AI */
+    --background: var(--mangaba-surface);
+    --foreground: var(--mangaba-neutral-dark);
 
-    --card: var(--mangaba-cream);
-    --card-foreground: var(--mangaba-bark);
+    --card: var(--mangaba-neutral);
+    --card-foreground: var(--mangaba-neutral-dark);
 
-    --popover: var(--mangaba-pearl);
-    --popover-foreground: var(--mangaba-bark);
+    --popover: var(--mangaba-neutral);
+    --popover-foreground: var(--mangaba-neutral-dark);
 
-    --primary: var(--mangaba-gold);
-    --primary-foreground: var(--mangaba-bark);
+    --primary: var(--mangaba-primary);
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: var(--mangaba-green);
+    --secondary: var(--mangaba-secondary);
     --secondary-foreground: 0 0% 100%;
 
-    --muted: var(--mangaba-mist);
-    --muted-foreground: var(--mangaba-earth);
+    --muted: var(--mangaba-neutral);
+    --muted-foreground: var(--mangaba-neutral-medium);
 
-    --accent: var(--mangaba-orange);
-    --accent-foreground: 0 0% 100%;
+    --accent: var(--mangaba-accent);
+    --accent-foreground: var(--mangaba-neutral-dark);
 
     --destructive: 0 75% 60%;
     --destructive-foreground: 0 0% 100%;
