@@ -130,6 +130,8 @@ export const FlowBuilder = () => {
   };
 
   const loadTemplate = (template: any) => {
+    console.log('Loading template:', template);
+    
     // Clear existing nodes and connections
     setNodes([]);
     setConnections([]);
@@ -138,22 +140,38 @@ export const FlowBuilder = () => {
     // Add template nodes and connections with proper IDs
     setTimeout(() => {
       const timestamp = Date.now();
-      const templateNodes = template.nodes.map((node: any, index: number) => ({
-        ...node,
-        id: `${node.type}-${timestamp}-${index}`
-      }));
       
+      // Create new nodes with unique IDs but preserve original IDs for connections
+      const templateNodes = template.nodes.map((node: any, index: number) => {
+        const newId = `${node.type}-${timestamp}-${index}`;
+        return {
+          ...node,
+          id: newId,
+          // Store original ID for connection mapping
+          originalId: node.id
+        };
+      });
+      
+      // Create connections using the new node IDs
       const templateConnections = template.connections.map((conn: any, index: number) => {
-        const sourceNode = templateNodes.find((n: any) => n.data.label === template.nodes.find((tn: any) => tn.id === conn.source)?.data?.label);
-        const targetNode = templateNodes.find((n: any) => n.data.label === template.nodes.find((tn: any) => tn.id === conn.target)?.data?.label);
+        const sourceNode = templateNodes.find((n: any) => n.originalId === conn.source);
+        const targetNode = templateNodes.find((n: any) => n.originalId === conn.target);
+        
+        if (!sourceNode || !targetNode) {
+          console.warn('Connection mapping failed:', conn, 'Available nodes:', templateNodes.map(n => ({ id: n.id, originalId: n.originalId })));
+          return null;
+        }
         
         return {
           ...conn,
           id: `conn-${timestamp}-${index}`,
-          source: sourceNode?.id || conn.source,
-          target: targetNode?.id || conn.target
+          source: sourceNode.id,
+          target: targetNode.id
         };
-      });
+      }).filter(Boolean); // Remove null connections
+      
+      console.log('Created nodes:', templateNodes);
+      console.log('Created connections:', templateConnections);
       
       setNodes(templateNodes);
       setConnections(templateConnections);

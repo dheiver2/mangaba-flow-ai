@@ -1299,6 +1299,13 @@ export const FlowSidebar = ({ isOpen, onAddNode, onLoadTemplate }: FlowSidebarPr
     template.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  console.log('FlowSidebar rendered with:', {
+    isOpen,
+    templatesCount: filteredTemplates.length,
+    componentsCount: filteredComponents.length,
+    totalTemplates: flowTemplates.length
+  });
+
   if (!isOpen) return null;
 
   return (
@@ -1308,7 +1315,7 @@ export const FlowSidebar = ({ isOpen, onAddNode, onLoadTemplate }: FlowSidebarPr
           <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
             <Sparkles className="w-4 h-4 text-primary-foreground" />
           </div>
-          <h2 className="text-lg font-semibold text-gradient">Mangaba AI</h2>
+          <h2 className="text-lg font-semibold text-primary">Mangaba AI</h2>
         </div>
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
@@ -1324,8 +1331,8 @@ export const FlowSidebar = ({ isOpen, onAddNode, onLoadTemplate }: FlowSidebarPr
 
       <Tabs defaultValue="components" className="flex-1 flex flex-col">
         <TabsList className="grid w-full grid-cols-2 m-4 mb-2">
-          <TabsTrigger value="components">Componentes</TabsTrigger>
-          <TabsTrigger value="templates">Templates</TabsTrigger>
+          <TabsTrigger value="components">Componentes ({filteredComponents.length})</TabsTrigger>
+          <TabsTrigger value="templates">Templates ({filteredTemplates.length})</TabsTrigger>
         </TabsList>
 
         <TabsContent value="components" className="flex-1 px-4 pb-4 mt-0">
@@ -1357,7 +1364,7 @@ export const FlowSidebar = ({ isOpen, onAddNode, onLoadTemplate }: FlowSidebarPr
               {filteredComponents.map((component, index) => (
                 <Card
                   key={`${component.type}-${index}`}
-                  className="p-3 cursor-pointer hover:shadow-md transition-all duration-200 border-gradient hover:scale-105"
+                  className="p-3 cursor-pointer hover:shadow-md transition-all duration-200 hover:scale-105"
                   onClick={() => onAddNode(component.type)}
                 >
                   <div className="flex items-start gap-3">
@@ -1392,8 +1399,11 @@ export const FlowSidebar = ({ isOpen, onAddNode, onLoadTemplate }: FlowSidebarPr
               {filteredTemplates.map(template => (
                 <Card
                   key={template.id}
-                  className="p-4 cursor-pointer hover:shadow-lg transition-all duration-200 border-gradient-animated hover:scale-102"
-                  onClick={() => onLoadTemplate(template)}
+                  className="p-4 cursor-pointer hover:shadow-lg transition-all duration-200 hover:scale-102"
+                  onClick={() => {
+                    console.log('Template clicked:', template.name);
+                    onLoadTemplate(template);
+                  }}
                 >
                   <div className="flex items-start gap-3">
                     <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${template.color} flex items-center justify-center flex-shrink-0`}>
