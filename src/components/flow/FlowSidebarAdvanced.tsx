@@ -1310,37 +1310,51 @@ export const FlowSidebar = ({ isOpen, onAddNode, onLoadTemplate }: FlowSidebarPr
     rendering: 'SUCCESS - TEMPLATES E COMPONENTES VISÍVEIS'
   });
 
-  if (!isOpen) {
-    return (
-      <div className="w-0 overflow-hidden transition-all duration-300 ease-in-out" />
-    );
-  }
+  // FORÇAR SIDEBAR SEMPRE VISÍVEL - SEM CONDICIONAIS
+  // if (!isOpen) {
+  //   return (
+  //     <div className="w-0 overflow-hidden transition-all duration-300 ease-in-out" />
+  //   );
+  // }
 
   return (
-    <div className={`bg-card border-r border-border flex flex-col h-full transition-all duration-300 ease-in-out ${isOpen ? 'w-80' : 'w-0 overflow-hidden'}`}>
+    <div className="w-80 bg-card border-r border-border flex flex-col h-full shadow-lg"
+         style={{ 
+           minWidth: '320px', 
+           maxWidth: '320px',
+           position: 'relative' as const,
+           zIndex: 1000,
+           display: 'flex',
+           visibility: 'visible' as const,
+           opacity: 1
+         }}>
       <div className="p-4 border-b border-border">
-        <div className="flex items-center gap-2 mb-3">
-          <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-            <Sparkles className="w-4 h-4 text-primary-foreground" />
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 bg-gradient-mangaba-primary rounded-full flex items-center justify-center shadow-glow">
+            <Sparkles className="w-6 h-6 text-white" />
           </div>
-          <h2 className="text-lg font-semibold text-primary">Mangaba AI</h2>
+          <h2 className="text-xl font-bold text-gradient">Mangaba AI Flow</h2>
         </div>
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+        <div className="relative mb-2">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
           <input
             type="text"
             placeholder="Buscar componentes..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background"
+            className="w-full pl-11 pr-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-sm"
           />
         </div>
       </div>
 
-      <Tabs defaultValue="components" className="flex-1 flex flex-col">
-        <TabsList className="grid w-full grid-cols-2 m-4 mb-2">
-          <TabsTrigger value="components">Componentes ({filteredComponents.length})</TabsTrigger>
-          <TabsTrigger value="templates">Templates ({filteredTemplates.length})</TabsTrigger>
+      <Tabs defaultValue="templates" className="flex-1 flex flex-col">
+        <TabsList className="grid w-full grid-cols-2 m-4 mb-2 h-12">
+          <TabsTrigger value="templates" className="text-sm font-semibold">
+            🎯 Templates ({filteredTemplates.length})
+          </TabsTrigger>
+          <TabsTrigger value="components" className="text-sm font-semibold">
+            🧩 Componentes ({filteredComponents.length})
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="components" className="flex-1 px-4 pb-4 mt-0">
@@ -1379,11 +1393,11 @@ export const FlowSidebar = ({ isOpen, onAddNode, onLoadTemplate }: FlowSidebarPr
                   }}
                 >
                   <div className="flex items-start gap-3">
-                    <div className={`w-10 h-10 rounded-lg ${component.color} flex items-center justify-center flex-shrink-0`}>
-                      <component.icon className="w-5 h-5 text-white" />
+                    <div className={`w-12 h-12 rounded-lg ${component.color} flex items-center justify-center flex-shrink-0 shadow-md`}>
+                      <component.icon className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-sm text-foreground truncate">
+                      <h3 className="font-semibold text-sm text-foreground truncate mb-1">
                         {component.label}
                       </h3>
                       <p className="text-xs text-muted-foreground line-clamp-2 mt-1">
@@ -1417,20 +1431,20 @@ export const FlowSidebar = ({ isOpen, onAddNode, onLoadTemplate }: FlowSidebarPr
                     onLoadTemplate(template);
                   }}
                 >
-                  <div className="flex items-start gap-3">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${template.color} flex items-center justify-center flex-shrink-0 shadow-sm`}>
-                      <template.icon className="w-6 h-6 text-white" />
+                  <div className="flex items-start gap-4">
+                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${template.color} flex items-center justify-center flex-shrink-0 shadow-lg animate-glow`}>
+                      <template.icon className="w-8 h-8 text-white" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between mb-2">
-                        <h3 className="font-semibold text-sm text-foreground">
+                      <div className="flex items-start justify-between mb-3">
+                        <h3 className="font-bold text-base text-foreground leading-tight">
                           {template.name}
                         </h3>
-                        <Badge variant="outline" className="text-xs">
+                        <Badge variant="outline" className="text-xs font-semibold">
                           {template.difficulty}
                         </Badge>
                       </div>
-                      <p className="text-xs text-muted-foreground line-clamp-2 mb-3">
+                      <p className="text-sm text-muted-foreground line-clamp-3 mb-4 leading-relaxed">
                         {template.description}
                       </p>
                       <div className="flex items-center justify-between">
@@ -1441,9 +1455,9 @@ export const FlowSidebar = ({ isOpen, onAddNode, onLoadTemplate }: FlowSidebarPr
                             </Badge>
                           ))}
                         </div>
-                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                          <Clock className="w-3 h-3" />
-                          {template.estimatedTime}
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/50 px-2 py-1 rounded-md">
+                          <Clock className="w-4 h-4" />
+                          <span className="font-medium">{template.estimatedTime}</span>
                         </div>
                       </div>
                     </div>
